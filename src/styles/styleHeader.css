@@ -1,0 +1,14 @@
+#divHeader{
+    margin-top: 0%;
+    text-align: left;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #76c3bc;
+}
+#divUsuario{
+    inline-size: auto;
+    margin-right: 10px;
+    background-color: #76c3bc;
+    float: right;
+    
+}
