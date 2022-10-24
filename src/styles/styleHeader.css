@@ -1,14 +1,41 @@
-#divHeader{
-    margin-top: 0%;
-    text-align: left;
-    color: white;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+.header {
     background-color: #76c3bc;
 }
-#divUsuario{
-    inline-size: auto;
-    margin-right: 10px;
-    background-color: #76c3bc;
+
+.logo {
+    margin: 5px 10px;
+    width:120px;
+}
+
+.divFondoIconos {
+    background-color: #00a89e;
+    margin: 11px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+#fondoUsuario {
     float: right;
-    
 }
+
+#fondoCarrito {
+    float: right;
+    margin-right: 0px;
+}
+
+#fondoProductos {
+    float: right;
+    margin-right: 0px;
+}
+
+.iconosHeader {
+    display: flex;
+    float: right;
+    margin: 10px;
+    width: 40px;
+}
+
+
+
+
