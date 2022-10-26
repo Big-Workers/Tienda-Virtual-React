@@ -24,7 +24,7 @@ app.set('port', process.env.PORT || 3000);
 // Server is listenning
 app.listen(app.get('port'), () => {
   console.log('Server on port', app.get('port'));
-})
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
