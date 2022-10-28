@@ -1,11 +1,10 @@
 .divFooter {
     background-color: #9ba3a6;
-    bottom: 0px;
-    right: 0px;
-    left: 0px;
-    position: relative;
+    bottom: 0;
+    width: 100%;
+    position: fixed;
     overflow: hidden;
-    block-size: 80px;
+    block-size: 70px;
 }
 
 .texto {
@@ -23,6 +22,7 @@
 
 .botonWhatsapp {
     position: absolute;
+    overflow: visible;
     top: 1px;
     right: 5px;
     width: 130px;
