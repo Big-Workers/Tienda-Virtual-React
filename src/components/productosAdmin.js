@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 import '../styles/productosAdmin.css';
 import gargantilla from '../resources/image_productos/gargantilla.png';
 import sombrero from '../resources/image_productos/sombrero.png';
-import bolso from '../resources/image_productos/bolso grande.png';
+import bolso from '../resources/image_productos/bolso_grande.png';
 import ojo from '../resources/ver.png';
 import editar from '../resources/ajustes.png';
 

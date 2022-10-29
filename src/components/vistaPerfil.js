@@ -4,7 +4,7 @@ import fotoPerfil from '../resources/usuario.png'
 import botonEditar from '../resources/editar.png'
 
 
-class ComponentePerfil extends Component {
+export class Perfil extends Component {
 
     render() {
         return (
@@ -22,7 +22,7 @@ class ComponentePerfil extends Component {
                                     <p id="list-item">contraseña</p>
                                 </div>
                                 <div>
-                                    <button id="button-edit"><img id="botonEditar" src={botonEditar}></img></button>
+                                    <button id="button-edit"><img id="botonEditar" src={botonEditar} alt="Bot+on editar"></img></button>
                                 </div>
                             </div>
                         </div>
@@ -32,5 +32,3 @@ class ComponentePerfil extends Component {
         )
     }
 }
-
-export default ComponentePerfil;
