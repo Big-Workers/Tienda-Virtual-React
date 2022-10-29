@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "img": "url",
+    "Name": "Grilla Multicolor",
+    "Descripcion": "Hecha a mano por artesanas Nariñences en el municipio de Sandoná.",
+    "Precio": 350000,
+    "Inventario": 12,
+    "vendidos": 3
+  },
+  {
+    "id": 2,
+    "img": "url",
+    "Name": "Bolso Elegante",
+    "Descripcion": "Hecha a mano por artesanas Nariñences en el municipio de Sandoná.",
+    "Precio": 290000,
+    "Inventario": 12,
+    "vendidos": 3
+  },
+  {
+    "id": 3,
+    "img": "url",
+    "Name": "Pava Fucsia para mujer",
+    "Descripcion": "Hecha a mano por artesanas Nariñences en el municipio de Sandoná.",
+    "Precio": 180000,
+    "Inventario": 12,
+    "vendidos": 3
+  },
+  {
+    "id": 4,
+    "img": "url",
+    "Name": "Sombrero para hombre",
+    "Descripcion": "Hecho a mano por artesanas Nariñences en el municipio de Sandoná.",
+    "Precio": 215000,
+    "Inventario": 12,
+    "vendidos": 3
+  }
+]

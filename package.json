@@ -12,6 +12,7 @@
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
     "method-override": "^3.0.0",
+    "mongodb": "^4.11.0",
     "mongoose": "^6.7.0",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
@@ -43,18 +44,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Big-Workers/Tienda-Virtual-React.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Big-Workers/Tienda-Virtual-React/issues"
-  },
-  "homepage": "https://github.com/Big-Workers/Tienda-Virtual-React#readme"
+  }
 }

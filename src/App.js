@@ -1,13 +1,21 @@
-import './App.css';
-import { Formulariologin } from './components/login';
+import {Header} from './components/header.js';
+import {Footer} from './components/footer.js';
+//import ComponentePerfil from './components/vistaPerfil.js';
+import ProductosAdmin from './components/productosAdmin.js';
 
 function App() {
   return (
-  <section>
-    <Formulariologin></Formulariologin>
-  </section>
-
-
+    <>
+    <header>
+      <Header/>
+    </header>
+    <main>
+      <ProductosAdmin/>
+    </main>
+    <footer>
+      <Footer/>
+    </footer>
+    </>
   );
 }
 
