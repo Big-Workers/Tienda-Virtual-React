@@ -1,19 +1,19 @@
-//import {Header} from './components/header.js';
-//import {Footer} from './components/footer.js';
+import {Header} from './components/header.js';
+import {Footer} from './components/footer.js';
 //import ComponentePerfil from './components/vistaPerfil.js';
-//import ProductosAdmin from './components/productosAdmin.js';
+import ProductosAdmin from './components/productosAdmin.js';
 
 function App() {
   return (
     <>
     <header>
-      <h3>header</h3>
+      <Header/>
     </header>
     <main>
-      <h3>main</h3>
+      <ProductosAdmin/>
     </main>
     <footer>
-      <h3>footer</h3>
+      <Footer/>
     </footer>
     </>
   );
