@@ -2,9 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-//import reportWebVitals from './reportWebVitals'; 
-//import { Profile } from './components/perfil';
-
+import reportWebVitals from './reportWebVitals';
 
 const express = require('express');
 
@@ -24,7 +22,7 @@ app.set('port', process.env.PORT || 3000);
 // Server is listenning
 app.listen(app.get('port'), () => {
   console.log('Server on port', app.get('port'));
-})
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

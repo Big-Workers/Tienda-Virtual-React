@@ -1,23 +1,11 @@
-import "./App.css";
-import {Header} from "./components/header.js";
-import {Footer} from "./components/footer.js";
-//import {Perfil} from "./components/vistaPerfil"; <ComponentePerfil />
-import {ListaProductos} from './components/vistaListaProductos';
+import { Fragment } from 'react';
+import './App.css';
 
 function App() {
   return (
-    <>
-      <header>
-        <Header />
-      </header>
-      <main>
-        
-        <ListaProductos />
-      </main>
-      <footer>
-        <Footer />
-      </footer>
-    </>
+    <Fragment>
+      <h1>Sitio React</h1>
+    </Fragment>
   );
 }
 
