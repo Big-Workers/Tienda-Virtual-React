@@ -1,13 +1,13 @@
 .contenedor-login{
+    position: absolute;
+    top: 0;
+    bottom: 0;
     width: 100%;
-    height: 1000px;
+    height: 100%;
     background-image: url(../resources/revista-axxis-artesanias-de-colombia.jpg);
-    display: flex;
+    background-size: 100%;
     align-items: center;
     justify-content: center;
-    background-size: cover;
-
-
 }
 
 .formulario{
@@ -49,7 +49,7 @@ color: #02194e;
     width: 100%;
     margin-top: 10px;
     border: none;
-    border-bottom: 3px solid #00A89E;
+    border-bottom: 4px solid #00A89E;
     margin: 30px 0;
     text-align: center;
 
