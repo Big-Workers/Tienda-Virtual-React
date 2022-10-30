@@ -13,7 +13,7 @@ export class Formulariologin extends Component {
                     <div class="contenedor-login">
 
                         <div class="formulario">
-                            <h2 class="titulo-formulario">Iniciar Sección</h2>
+                            <h2 class="titulo-formulario">Iniciar Sesión</h2>
                             <form class="formatito">
                                 <label for="usuario o email"></label>
                                 <input class="campotex" type="text" name="usuario o email" placeholder="Usuario o Email" />

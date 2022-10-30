@@ -1,4 +1,4 @@
-#containerFormato{
+.containerFormato{
     background-color: white;
     width: 300px;
     height: 500px;
@@ -13,11 +13,11 @@
     border-radius: 50px;
 }
 
-#contenedor-elementos{
+.contenedor-elementos{
     width: 100%;
 }
 
-#img-item{
+.img-item{
     display: block;
     background-color: #ebebeb;
     width: 120px;
@@ -28,7 +28,7 @@
     border: solid #76c3bc;
 }
 
-#fotoPerfil{
+.fotoPerfil{
     display:flex;
     align-items: center;
     justify-content: center;
@@ -38,31 +38,31 @@
     
 }
 
-#contenido-lista{
+.contenido-lista{
     width: 80%;
     height: 100%;
     margin-top: 40px;
     margin-bottom: 40px;
 }
 
-#list-item{
+.list-item{
     font-family: 'Nunito', sans-serif;
     border-bottom: solid #76c3bc;
     margin-top: 10px;
 }
 
-#button-edit{
+.button-edit{
     background-color: #76c3bc;
     border-radius: 10px;
     border: 0;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     margin-bottom: 50px;
 }
-
-#botonEditar{
+.botonEditar{
     align-items: center;
     justify-content: center;
-    width: 100%;
+    margin-top: 3px;
+    width: 80%;
     height: 80%;
 }

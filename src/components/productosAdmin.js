@@ -7,7 +7,7 @@ import bolso from '../resources/image_productos/bolso_grande.png';
 import ojo from '../resources/ver.png';
 import editar from '../resources/ajustes.png';
 
-class ProductosAdmin extends Component {
+export class ProductosAdmin extends Component {
     render() {
         return (
             <Fragment >
@@ -62,6 +62,4 @@ class ProductosAdmin extends Component {
             </Fragment>
         )
     }
-}
-
-export default ProductosAdmin;
+};
