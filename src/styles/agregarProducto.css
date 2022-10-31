@@ -7,14 +7,17 @@
     top: 50%;
     left: 50%;
     border-radius: 10px;
-
+    
 }
-
+.format{
+    margin: 0 30px;
+}
 .titulo-formato{
 
     color: #00A89E;
     font-family: 'Nunito', sans-serif;
-
+    margin-bottom: 40px;
+    margin-top: 40px;
 }
 
 .Selección{
@@ -29,11 +32,16 @@
     color: black;
     font-family: 'Nunito', sans-serif;
     font-size: 18px;
-
-
+    border: none;
+    border-bottom: 4px solid #00a89e;
+    width: 80%;
+    margin: 5px;
+    
 }
 
-
+.Boton-agregar-producto{
+    margin-top: 30px;
+}
 
 .bton {
     width: 30%;
@@ -45,7 +53,6 @@
     font-size: 16px;
     color: #edfcfb;
     font-weight: 700;
-
 }
 
 .elemento {
