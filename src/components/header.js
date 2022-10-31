@@ -8,7 +8,7 @@ import home from '../resources/casa-de-perro.png';
 export function Header () {
     return (
         <nav className="header">
-            <a href="/"><img src={logo} className="logo" alt="logo" /></a>
+            <a href="/Home"><img src={logo} className="logo" alt="logo" /></a>
             <div className="divFondoIconos" id="fondoUsuario">
                 <a href="/Perfil"><img src={usuario} className="iconosHeader" alt="Perfil"/></a>
             </div>
@@ -19,7 +19,7 @@ export function Header () {
                 <a href="/Productos"><img src={productos} className="iconosHeader" alt="Productos"/></a>
             </div>        
             <div className="divFondoIconos">
-                <a href="/Productos"><img src={home} className="iconosHeader" alt="Home"/></a>
+                <a href="/Home"><img src={home} className="iconosHeader" alt="Home"/></a>
             </div> 
         </nav>
 

@@ -1,0 +1,32 @@
+.contenedor-ventas{
+  margin-top: 200px;
+}
+
+table th{
+
+  width: 10em;
+  font-size: 18px;
+}
+
+table{
+  border-collapse: collapse;
+}
+
+tr:nth-of-type(1)>th {
+  color: #fff;
+  background-color:#00A89E;
+}
+
+td {
+  text-align: right;
+  font-weight: bold;    
+}
+
+h1 {
+  color:#00A89E;
+}
+
+.img-ventas {
+  max-block-size: 25px;  
+  
+}

@@ -1,3 +1,5 @@
+import { Home } from "./components/home.js";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { Header } from "./components/header.js";
@@ -5,22 +7,21 @@ import { Footer } from "./components/footer.js";
 
 import { Formulariologin } from "./components/login.js";
 
-//  importacion Registrarse <----------
+import { Registro } from "./components/registro.js";
 
 import { Perfil } from "./components/vistaPerfil.js";
 import { EditarPerfil } from "./components/vistaEditarPerfil.js";
-//  importacion editar perfil <----------
 
 import { ListaProductos } from "./components/vistaListaProductos.js";
-//  importacion carrito de compras <----------
-import {PasarelaPagos} from './components/pasarelaPagos.js';
+import { CarritoCompras } from "./components/carrito.js";
+import { PasarelaPagos } from "./components/pasarelaPagos.js";
 
-// importacion pago aprobado
-// importacion pago rechazado
+import { Aprobado } from "./components/aprobado.js";
+import { Rechazado } from "./components/rechazado.js";
 
-import {ProductosAdmin} from './components/productosAdmin.js';
-// importacion Nuevo producto ESTA PERO INCOMPLETO
-// importacion ventas
+import { ProductosAdmin } from "./components/productosAdmin.js";
+import { AgregarProducto } from "./components/agregarProducto.js";
+import { Ventas } from "./components/ventas.js";
 
 // importacion creditos
 
@@ -29,8 +30,18 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+          <Route
+            path="/Home"
+            element={
+              <>
+                <Header />
+                <Home />
+                <Footer />
+              </>
+            }
+          />
           <Route path="/" element={<Formulariologin />} />
-          <Route path="/Registrarse" element={<h1>vista Registrarse</h1>} />
+          <Route path="/Registrarse" element={<Registro />} />
           <Route
             path="/Perfil"
             element={
@@ -41,11 +52,16 @@ function App() {
               </>
             }
           />
-          <Route path="/Editar-Perfil" element={<>
+          <Route
+            path="/Editar-Perfil"
+            element={
+              <>
                 <Header />
                 <EditarPerfil />
                 <Footer />
-              </>} />
+              </>
+            }
+          />
           <Route
             path="/Productos"
             element={
@@ -56,31 +72,80 @@ function App() {
               </>
             }
           />
-          <Route path="/Carrito" element={<h1>Vista Carrito de compras</h1>} />
-          <Route path="/Pasarela" element={<>
+          <Route
+            path="/Carrito"
+            element={
+              <>
+                <Header />
+                <CarritoCompras />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/Pasarela"
+            element={
+              <>
                 <Header />
                 <PasarelaPagos />
                 <Footer />
-              </>} />
+              </>
+            }
+          />
 
-          <Route path="/Aprobado" element={<h1>Vista Pago Aprobado</h1>} />
-          <Route path="/Rechazado" element={<h1>Vista Pago Rechazado</h1>} />
+          <Route
+            path="/Aprobado"
+            element={
+              <>
+                <Header />
+                <Aprobado />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/Rechazado"
+            element={
+              <>
+                <Header />
+                <Rechazado />
+                <Footer />
+              </>
+            }
+          />
 
           <Route
             path="/Admin-Productos"
-            element={<>
-              <Header />
-              <ProductosAdmin />
-              <Footer />
-            </>}
+            element={
+              <>
+                <Header />
+                <ProductosAdmin />
+                <Footer />
+              </>
+            }
           />
           <Route
             path="/Admin-Nuevo-Producto"
-            element={<h1>Vista nuevo producto</h1>}
+            element={
+              <>
+                <Header />
+                <AgregarProducto />
+                <Footer />
+              </>
+            }
           />
-          <Route path="/Admin-Ventas" element={<h1>Vista Ventas</h1>} />
+          <Route
+            path="/Admin-Ventas"
+            element={
+              <>
+                <Header />
+                <Ventas />
+                <Footer />
+              </>
+            }
+          />
 
-          <Route path="/about" element={<h1>Vista Creditos</h1>} />
+          <Route path="/about" element={<h1>Team Big Workers</h1>} />
         </Routes>
       </BrowserRouter>
     </>

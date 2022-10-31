@@ -10,7 +10,7 @@ import editar from '../resources/ajustes.png';
 export class ProductosAdmin extends Component {
     render() {
         return (
-            <Fragment >
+            <Fragment>
                 <div class="titulo">
                     <p class="textoListProductos">Lista de Productos</p>
                 </div>

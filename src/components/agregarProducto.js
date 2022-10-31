@@ -1,26 +1,35 @@
 import { Fragment } from "react";
-import React,{useState} from "react";
+import { Component } from "react";
+import "../styles/agregarProducto.css";
 
-
-export default function Formulariologin(){
-const [ nombre,setNombre]= useState ("");
-
-
-    return(
-        <Fragment>
-            <h2>AGREGAR PRODUCTO</h2>
-            <form>
-                <lebel for= "nombre">nombre</lebel>
-                <input type="tex" id="nombre" name="nombre" value="" onChange={(e)=>setNombre()}></input>
-                
-                    
-
-            
+export class AgregarProducto extends Component {
+  render() {
+    return (
+      <Fragment>
+        <center>
+          <div class="formulario">
+            <h2 class="titulo-formulario">AGREGAR PRODUCTO</h2>
+            <form class="format">
+              <label for="Nonbre del Producto"></label>
+              <input class="campotex" type="text" name="Nombre del Producto" />
+              <br></br>
+              <label for="Nonbre del Producto"></label>
+              <input class="campotex" type="text" name="Nombre del Producto" />
+              <br></br>
+              <label for="Nonbre del Producto"></label>
+              <input class="campotex" type="text" name="Nombre del Producto" />
+              <br></br>
+              <label for="Nonbre del Producto"></label>
+              <input class="campotex" type="text" name="Nombre del Producto" />
             </form>
-
-            
-
-        </Fragment>
-
-        );
-    }
+            <div>
+              <button onclick="btn" className="btn element">
+                Ingresar
+              </button>
+            </div>
+          </div>
+        </center>
+      </Fragment>
+    );
+  }
+}
