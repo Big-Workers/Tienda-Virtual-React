@@ -33,3 +33,6 @@ export class AgregarProducto extends Component {
     );
   }
 }
+
+}
+

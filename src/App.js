@@ -23,6 +23,8 @@ import { ProductosAdmin } from "./components/productosAdmin.js";
 import { AgregarProducto } from "./components/agregarProducto.js";
 import { Ventas } from "./components/ventas.js";
 
+
+
 // importacion creditos
 
 function App() {
