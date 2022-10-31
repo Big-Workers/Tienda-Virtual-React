@@ -9,7 +9,7 @@ import { Formulariologin } from "./components/login.js";
 
 
 //  importacion Registrarse <----------
-
+import { Registro } from "./components/registro.js";
 import { Perfil } from "./components/vistaPerfil.js";
 import { EditarPerfil } from "./components/vistaEditarPerfil.js";
 //  importacion editar perfil <----------
@@ -37,7 +37,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Formulariologin />} />
-          <Route path="/Registrarse" element={<h1>vista Registrarse</h1>} />
+          <Route path="/Registrarse" element={<>
+          <Registro />
+          </>} />
           <Route
             path="/Perfil"
             element={
