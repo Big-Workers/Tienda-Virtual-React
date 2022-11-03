@@ -4,6 +4,7 @@ import logo from '../resources/logo-1.png';
 import carrito from '../resources/carrito-de-compras.png';
 import productos from '../resources/paquete.png';
 import home from '../resources/casa-de-perro.png';
+import editar from '../resources/editar.png';
 
 export function Header () {
     return (
@@ -17,7 +18,10 @@ export function Header () {
             </div>
             <div className="divFondoIconos">
                 <a href="/Productos"><img src={productos} className="iconosHeader" alt="Productos"/></a>
-            </div>        
+            </div>  
+            <div className="divFondoIconos">
+                <a href="/Admin-Productos"><img src={editar} className="iconosHeader" alt="Productos"/></a>
+            </div>       
             <div className="divFondoIconos">
                 <a href="/Home"><img src={home} className="iconosHeader" alt="Home"/></a>
             </div> 

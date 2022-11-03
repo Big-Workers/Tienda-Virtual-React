@@ -2,22 +2,22 @@
   margin-top: 200px;
 }
 
-table th{
+.tabla-ventas th{
 
   width: 10em;
   font-size: 18px;
 }
 
-table{
+.tabla-ventas{
   border-collapse: collapse;
 }
 
-tr:nth-of-type(1)>th {
+.tabla-ventas tr:nth-of-type(1)>th {
   color: #fff;
   background-color:#00A89E;
 }
 
-td {
+.tabla-ventas td {
   text-align: right;
   font-weight: bold;    
 }

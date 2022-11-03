@@ -49,7 +49,7 @@ export class PasarelaPagos extends Component {
                         </form>
                         <div class="div-boton">
                             <div class="boton-continuar">
-                                <a href="#">
+                                <a href="/Aprobado">
                                     <p class="texto-continuar">Continuar</p>
                                 </a>
                             </div>

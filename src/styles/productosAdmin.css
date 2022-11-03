@@ -5,7 +5,7 @@ body {
 
 .titulo-prod-admin  {
     margin-bottom: 10px;
-    margin-left: 15%;
+    margin-left: 330px;
     width: 150px;
     height: 20px;
     border: 2px solid;
@@ -87,12 +87,12 @@ body {
     display: flex;
     justify-content: center;
     overflow: auto;
-    height: 300px;
+    height: 600px;
     margin: 0 5%;
 }
 
-table {
-    width: 1000px;
+.tabla-admin-prod {
+    width: 1500px;
     border: 1px solid #9ba3a6;
     border-collapse: collapse;
     text-align: center;

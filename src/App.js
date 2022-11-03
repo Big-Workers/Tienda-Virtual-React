@@ -126,16 +126,16 @@ const inventario = [
 ];
 
 function App() {
-  const [db, setDb] = useState(inventario);
-  const [dataToEdit, setDataToEdit] = useState(inventario);
+  const [dbProd, setDbProd] = useState(inventario);
+  const [dataToEditProd, setDataToEditProd] = useState(inventario);
 
   const crearProducto = (data) => {
     data.id = Date.now();
-    setDb([...db, data]);
+    setDbProd([...dbProd, data]);
   };
 
-  const actualizarPruducto = (data) => {
-
+  const actualizarProducto = (data) => {
+    let newProd = dbProd.map
   };
 
   const eliminarProducto = (id) => {
@@ -183,7 +183,7 @@ function App() {
             element={
               <>
                 <Header />
-                <ListaProductos data={db} />
+                <ListaProductos data={dbProd} />
                 <Footer />
               </>
             }
@@ -235,7 +235,10 @@ function App() {
             element={
               <>
                 <Header />
-                <ProductosAdmin data={db} />
+                <ProductosAdmin 
+                data={dbProd}
+                setDataToEditProd={setDataToEditProd}
+                 />
                 <Footer />
               </>
             }
@@ -245,7 +248,11 @@ function App() {
             element={
               <>
                 <Header />
-                <AgregarProducto />
+                <AgregarProducto 
+                setDataToEditProd={setDataToEditProd}
+                crearProducto={crearProducto}
+                actualizarProducto={actualizarProducto}
+                />
                 <Footer />
               </>
             }

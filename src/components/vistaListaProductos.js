@@ -22,7 +22,7 @@ export const ListaProductos = ({ data }) => {
                 {prod.Descripcion}{" "}
               </p>
             </center>
-            <h2 class="precio-lista-productos">$ {prod.Precio}00</h2>
+            <h2 class="precio-lista-productos">$ {prod.Precio}</h2>
             <div class="opciones-prod">
               <select class="select-cantidad">
                 <option value="1">1</option>
