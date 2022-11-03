@@ -2,13 +2,13 @@ import { Fragment } from "react";
 import { Component } from "react";
 import "../styles/agregarProducto.css";
 
-export class AgregarProducto extends Component {
+export class ModificarProducto extends Component {
   render() {
     return (
       <Fragment>
         <center>
           <div class="formato">
-            <h2 class="titulo-formato">AGREGAR PRODUCTO</h2>
+            <h2 class="titulo-formato">MODIFICAR PRODUCTO</h2>
             <form class="format">
               <label for="Nombre del Producto"></label>
               <input
@@ -60,7 +60,7 @@ export class AgregarProducto extends Component {
             </form>
             <div class="Boton-agregar-producto">
               <button onclick="bton" className="bton elemento">
-                Ingresar
+                Guardar
               </button>
             </div>
           </div>

@@ -21,9 +21,10 @@ import { Rechazado } from "./components/rechazado.js";
 
 import { ProductosAdmin } from "./components/productosAdmin.js";
 import { AgregarProducto } from "./components/agregarProducto.js";
+import { ModificarProducto } from "./components/modificarProducto.js";
 import { Ventas } from "./components/ventas.js";
 
-// importacion creditos
+import { About } from "./components/about.js";
 
 function App() {
   return (
@@ -135,6 +136,16 @@ function App() {
             }
           />
           <Route
+            path="/Admin-Modificar-Producto"
+            element={
+              <>
+                <Header />
+                <ModificarProducto />
+                <Footer />
+              </>
+            }
+          />
+          <Route
             path="/Admin-Ventas"
             element={
               <>
@@ -145,7 +156,7 @@ function App() {
             }
           />
 
-          <Route path="/about" element={<h1>Team Big Workers</h1>} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </BrowserRouter>
     </>
