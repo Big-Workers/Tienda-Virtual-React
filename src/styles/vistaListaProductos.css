@@ -58,7 +58,7 @@
     display: flex;
     align-items: center;
 }
-.precio{
+.precio-lista-productos{
     font-family: 'Arial Narrow Bold', sans-serif;
     color: #0caca2;
     padding-left: 25px;

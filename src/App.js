@@ -1,6 +1,7 @@
 import { Home } from "./components/home.js";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
 
 import { Header } from "./components/header.js";
 import { Footer } from "./components/footer.js";
@@ -23,9 +24,124 @@ import { ProductosAdmin } from "./components/productosAdmin.js";
 import { AgregarProducto } from "./components/agregarProducto.js";
 import { Ventas } from "./components/ventas.js";
 
+import gargantilla from "./resources/image_productos/gargantilla.png";
+import bolso from "./resources/image_productos/bolso_grande.png";
+import sombreroFucsia from "./resources/image_productos/sombrero_fucsia.png";
+import sombrero from "./resources/image_productos/sombrero.png";
+
 // importacion creditos
 
+//declaración array para usar como inventario
+const inventario = [
+  {
+    "id": 1,
+    "ref": "0153",
+    "img": gargantilla,
+    "Name": "Gargantilla Multicolor",
+    "Descripcion": "Hecha a mano por artesanas Nariñences en el municipio de Sandoná.",
+    "Precio": 350000,
+    "Inventario": 12,
+    "vendidos": 3
+  },
+  {
+    "id": 2,
+    "ref": "0189",
+    "img": bolso,
+    "Name": "Bolso Elegante",
+    "Descripcion": "Hecha a mano por artesanas Nariñences en el municipio de Sandoná.",
+    "Precio": 290000,
+    "Inventario": 12,
+    "vendidos": 3
+  },
+  {
+    "id": 3,
+    "ref": "0321",
+    "img": sombreroFucsia,
+    "Name": "Pava Fucsia para mujer",
+    "Descripcion": "Hecha a mano por artesanas Nariñences en el municipio de Sandoná.",
+    "Precio": 180000,
+    "Inventario": 12,
+    "vendidos": 3
+  },
+  {
+    "id": 4,
+    "ref": "0155",
+    "img": sombrero,
+    "Name": "Sombrero para hombre",
+    "Descripcion": "Hecho a mano por artesanas Nariñences en el municipio de Sandoná.",
+    "Precio": 215000,
+    "Inventario": 12,
+    "vendidos": 3
+  },
+  {
+    "id": 5,
+    "ref": "0133",
+    "img": gargantilla,
+    "Name": "Gargantilla Multicolor",
+    "Descripcion": "Hecha a mano por artesanas Nariñences en el municipio de Sandoná.",
+    "Precio": 350000,
+    "Inventario": 12,
+    "vendidos": 3
+  },
+  {
+    "id": 6,
+    "ref": "0253",
+    "img": bolso,
+    "Name": "Bolso Elegante",
+    "Descripcion": "Hecha a mano por artesanas Nariñences en el municipio de Sandoná.",
+    "Precio": 290000,
+    "Inventario": 12,
+    "vendidos": 3
+  },
+  {
+    "id": 7,
+    "ref": "0115",
+    "img": sombreroFucsia,
+    "Name": "Pava Fucsia para mujer",
+    "Descripcion": "Hecha a mano por artesanas Nariñences en el municipio de Sandoná.",
+    "Precio": 180000,
+    "Inventario": 12,
+    "vendidos": 3
+  },
+  {
+    "id": 8,
+    "ref": "0513",
+    "img": sombrero,
+    "Name": "Sombrero para hombre",
+    "Descripcion": "Hecho a mano por artesanas Nariñences en el municipio de Sandoná.",
+    "Precio": 215000,
+    "Inventario": 12,
+    "vendidos": 3
+  },
+  {
+    "id": 9,
+    "ref": "0893",
+    "img": sombrero,
+    "Name": "Sombrero para hombre",
+    "Descripcion": "Hecho a mano por artesanas Nariñences en el municipio de Sandoná.",
+    "Precio": 215000,
+    "Inventario": 12,
+    "vendidos": 3
+  }
+];
+
 function App() {
+  const [db, setDb] = useState(inventario);
+  const [dataToEdit, setDataToEdit] = useState(inventario);
+
+  const crearProducto = (data) => {
+    data.id = Date.now();
+    setDb([...db, data]);
+  };
+
+  const actualizarPruducto = (data) => {
+
+  };
+
+  const eliminarProducto = (id) => {
+
+  };
+
   return (
     <>
       <BrowserRouter>
@@ -67,7 +183,7 @@ function App() {
             element={
               <>
                 <Header />
-                <ListaProductos />
+                <ListaProductos data={db} />
                 <Footer />
               </>
             }
@@ -119,7 +235,7 @@ function App() {
             element={
               <>
                 <Header />
-                <ProductosAdmin />
+                <ProductosAdmin data={db} />
                 <Footer />
               </>
             }
