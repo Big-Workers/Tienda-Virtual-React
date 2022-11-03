@@ -98,14 +98,14 @@ export class CarritoCompras extends Component {
               </form>
               <div class="div-boton">
                 <div class="boton-seguir-comprando">
-                  <a href="#">
+                  <a href="/Productos">
                     <p class="texto-seguir-comprando">seguir comprando</p>
                   </a>
                 </div>
               </div>
               <div class="div-boton2">
                 <div class="boton-pagar-ahora">
-                  <a href="#">
+                  <a href="/Pasarela">
                     <p class="texto-pagar-ahora">¡Pagar ahora!</p>
                   </a>
                 </div>

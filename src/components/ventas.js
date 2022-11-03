@@ -10,7 +10,7 @@ export class Ventas extends Component {
     return (
       <center>
         <div class="contenedor-ventas">
-          <table border="1" cellpadding>
+          <table className="tabla-ventas" border="1" cellpadding>
             <tr>
               <th> Ref </th>
               <th> Imágen </th>
