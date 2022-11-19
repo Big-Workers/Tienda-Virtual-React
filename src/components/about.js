@@ -16,17 +16,13 @@ export class About extends Component {
         <br></br>
         <a href="/Productos">Productos</a>
         <br></br>
-        <a href="/Pasarela">Pasarela</a>
-        <br></br>
         <a href="/Aprobado">Aprobado</a>
-        <br></br>
-        <a href="/Rechazado">Rechazado</a>
         <br></br>
         <a href="/Admin-Productos">Admin-Productos</a>
         <br></br>
         <a href="/Admin-Nuevo-Producto">Admin-Nuevo-Producto</a>
         <br></br>
-        <a href="/Admin-Ventas">Pasarela</a>
+        <a href="/Admin-Ventas">Lista Ventas</a>
       </Fragment>
     );
   }

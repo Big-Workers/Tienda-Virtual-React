@@ -15,10 +15,6 @@ export class Aprobado extends Component{
                 <p className="txt-cantidad">(3)</p>
                 <p className="text-valor"> $ 680.000</p>
               </form>
-              <form className="div-envio">
-                <p className="text-Total">Envio:</p>
-                <p className="text-valor"> $ 15.000</p>
-              </form>
               <br />
               <br />
               <br />
@@ -26,20 +22,9 @@ export class Aprobado extends Component{
                 <p className="text-Total">Total</p>
                 <p className="text-valor"> $ 795.000</p>
               </form>
-              <div class="div-boton">
-                <div class="boton-seguir-comprando">
-                  <a href="#">
-                    <p class="texto-seguir-comprando">seguir comprando</p>
-                  </a>
+                 <div class="div-boton-finzalizar">
+                  <a class="boton-finalizar"href="/Home">Finalizar                  </a>
                 </div>
-              </div>
-              <div class="div-boton2">
-                <div class="boton-pagar-ahora">
-                  <a href="#">
-                    <p class="texto-pagar-ahora">¡Pagar ahora!</p>
-                  </a>
-                </div>
-              </div>
               </div>
             </center>
         )

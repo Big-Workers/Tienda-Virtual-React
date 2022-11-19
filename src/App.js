@@ -3,6 +3,7 @@ import { Home } from "./components/home.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 
+import { HeaderAdmin } from "./components/headerAdmin";
 import { Header } from "./components/header.js";
 import { Footer } from "./components/footer.js";
 
@@ -15,15 +16,13 @@ import { EditarPerfil } from "./components/vistaEditarPerfil.js";
 
 import { ListaProductos } from "./components/vistaListaProductos.js";
 import { CarritoCompras } from "./components/carrito.js";
-import { PasarelaPagos } from "./components/pasarelaPagos.js";
 
 import { Aprobado } from "./components/aprobado.js";
-import { Rechazado } from "./components/rechazado.js";
 
 import { ProductosAdmin } from "./components/productosAdmin.js";
 import { AgregarProducto } from "./components/agregarProducto.js";
 import { ModificarProducto } from "./components/modificarProducto.js";
-import { Ventas } from "./components/ventas.js";
+import { Ventas } from "./components/ventas";
 
 import { About } from "./components/about.js";
 
@@ -184,7 +183,7 @@ function App() {
             path="/Productos"
             element={
               <>
-                <Header />
+                <HeaderAdmin />
                 <ListaProductos data={dbProd} />
                 <Footer />
               </>
@@ -201,17 +200,6 @@ function App() {
             }
           />
           <Route
-            path="/Pasarela"
-            element={
-              <>
-                <Header />
-                <PasarelaPagos />
-                <Footer />
-              </>
-            }
-          />
-
-          <Route
             path="/Aprobado"
             element={
               <>
@@ -222,21 +210,10 @@ function App() {
             }
           />
           <Route
-            path="/Rechazado"
-            element={
-              <>
-                <Header />
-                <Rechazado />
-                <Footer />
-              </>
-            }
-          />
-
-          <Route
             path="/Admin-Productos"
             element={
               <>
-                <Header />
+                <HeaderAdmin />
                 <ProductosAdmin 
                 data={dbProd}
                 setDataToEditProd={setDataToEditProd}
@@ -249,7 +226,7 @@ function App() {
             path="/Admin-Nuevo-Producto"
             element={
               <>
-                <Header />
+                <HeaderAdmin />
                 <AgregarProducto 
                 setDataToEditProd={setDataToEditProd}
                 crearProducto={crearProducto}
@@ -263,7 +240,7 @@ function App() {
             path="/Admin-Modificar-Producto"
             element={
               <>
-                <Header />
+                <HeaderAdmin />
                 <ModificarProducto />
                 <Footer />
               </>
@@ -273,7 +250,7 @@ function App() {
             path="/Admin-Ventas"
             element={
               <>
-                <Header />
+                <HeaderAdmin />
                 <Ventas />
                 <Footer />
               </>

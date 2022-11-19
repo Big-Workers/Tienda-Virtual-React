@@ -92,7 +92,7 @@ body {
 }
 
 .tabla-admin-prod {
-    width: 1500px;
+    width: 1200px;
     border: 1px solid #9ba3a6;
     border-collapse: collapse;
     text-align: center;
@@ -100,32 +100,29 @@ body {
     font-family: 'Nunito', sans-serif;
 }
 
-td,
-th {
-    border: 1px solid #9ba3a6;
-    padding: 5px;
-}
-
 .colRef {
     width: 10%;
 }
 
 .colIcono {
-    width: 5%;
+    width: 70px;
 }
 
 .encabezados {
     background-color: #00a89e;   
     color: white; 
-    font-size: small;
+    font-size:medium;
+    height: 50px;
 }
-
+.columnaImagen{
+    height: 120px;
+    width: 120px;
+}
 .imagenProducto {
-    width: 70px;
+    width: 100px;
+    
 }
 
 .iconos {
     width: 30px;
 }
-
-
