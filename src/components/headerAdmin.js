@@ -7,7 +7,7 @@ import ventas from '../resources/ventas.png';
 export function HeaderAdmin () {
     return (
         <nav className="header">
-            <a href="#"><img src={logo} className="logo" alt="logo" /></a>
+            <a href="/Home"><img src={logo} className="logo" alt="logo" /></a>
             <div className="divFondoIconos">
                 <a href="/Admin-Ventas"><img src={ventas} className="iconosHeader" alt="Productos"/></a>
             </div>

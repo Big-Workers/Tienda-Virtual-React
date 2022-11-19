@@ -26,7 +26,7 @@ export const ListaProductos = () => {
   const addProductosCarrito = async (producto) => {
     const { nombre, imagen, precio } = producto;
 
-    await axios.post("http://localhost:5000/productosCarrito", { nombre, imagen, precio });
+    await axios.post("http://localhost:5000/postProductosCarrito", { nombre, imagen, precio });
 
     getData();
   };
@@ -51,11 +51,6 @@ export const ListaProductos = () => {
             </center>
             <h2 className="precio-lista-productos">$ {prod.precio}</h2>
             <div className="opciones-prod">
-              {/*} <select className="select-cantidad">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                </select>*/}
               <div>
                 {!prod.enCarrito ? (
                   <a className="boton-agregar" href="#" onClick={() => addProductosCarrito(prod)}>Agregar</a>

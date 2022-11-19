@@ -8,7 +8,7 @@ export const CarritoCompras = () => {
   const [carritoItems, setCarritoItems] = useState([]);
 
   function getProductosCarrito() {
-    fetch("http://localhost:5000/productosCarrito")
+    fetch("http://localhost:5000/getProductosCarrito")
       .then((resp) => resp.json())
       .then((resp) => {
         return setCarritoItems(resp)
@@ -19,7 +19,22 @@ export const CarritoCompras = () => {
   useEffect(() => {
     getProductosCarrito();
   }, []);
-  console.log(carritoItems);
+
+  const editarItemCarrito = async (id, query, cantidad) => {
+    if (query === "del" && cantidad === 1) {
+      await axios
+        .delete(`http://localhost:5000/delProductosCarrito/${id}`)
+        .then(({ data }) => console.log(data));
+    } else {
+      await axios
+        .put(`http://localhost:5000/putProductosCarrito/${id}?query=${query}`, {
+          cantidad,
+        })
+        .then(({ data }) => console.log(data));
+    }
+    getProductosCarrito();
+  };
+
   return (
     <>
       <center>
@@ -35,24 +50,24 @@ export const CarritoCompras = () => {
                 </tr>
               </thead>
               {carritoItems.map((prod) =>
-                <tbody key={prod._id}>
+                <tbody>
 
                   <tr>
                     <td className="imagen">
-                      <img src={"imagen"} className="imagen" alt="imagen" />
+                      <img src={prod.imagen} className="imagen" alt="imagen" />
                     </td>
-                    <td>prod.nombre</td>
-                    <td>prod.cantidad</td>
+                    <td>{prod.nombre}</td>
+                    <td>
+                      {prod.cantidad}
+                      &nbsp;
+                      <button onClick={() => editarItemCarrito(prod._id, "add", prod.cantidad)}>+</button>
+                      <button onClick={() => editarItemCarrito(prod._id, "del", prod.cantidad)}>-</button>
+                    </td>
                     <td>
                       {" "}
-                      $prod.precio
+                      ${(prod.precio * prod.cantidad)}
                       <div className="opciones-prod">
-                        {/*<select className="cantidad">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-              </select>*/}
-                        <a href="#">
+                        <a href="#" onClick={() => editarItemCarrito(prod._id, "del", 1)}>
                           <img src={basura} className="iconos" alt="icono" />
                         </a>
                       </div>
@@ -62,25 +77,27 @@ export const CarritoCompras = () => {
               )}
             </table>
           </div>
+
           <div className="contenedor-resumen">
-              <h4>Resumen de la compra</h4>
-              <form className="div-titulo">
-                <p className="text-Total">Total a pagar:</p>
-                <p className="txt-cantidad">(3)</p>
-                <p className="text-valor"> $ 680.000</p>
-              </form>
-              <br />
-              <br />
-              <br />
-              <form className="div-total-pagar">
-                <p className="text-Total">Total</p>
-                <p className="text-valor"> $ 795.000</p>
-              </form>
-              <div class="div-boton-finzalizar">
-                <a class="boton-finalizar" href="/Aprobado">Pagar ahora</a>
-              </div>
+            <h4>Resumen de la compra</h4>
+            <form className="div-titulo">
+              <p className="text-Total">Total a pagar:</p>
+              <p className="txt-cantidad">(3)</p>
+              <p className="text-valor">680.000</p>
+            </form>
+            <br />
+            <br />
+            <br />
+            <form className="div-total-pagar">
+              <p className="text-Total">Total</p>
+              <p className="text-valor"> $ 795.000</p>
+            </form>
+            <div class="div-boton-finzalizar">
+              <a class="boton-finalizar" href="/Aprobado">Pagar ahora</a>
             </div>
-        </center>  
-        </>    
-    );  
+          </div>
+        </div>
+      </center>
+    </>
+  );
 }

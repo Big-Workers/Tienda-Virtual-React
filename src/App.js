@@ -69,7 +69,7 @@ function App() {
             path="/Productos"
             element={
               <>
-                <HeaderAdmin />
+                <Header />
                 <ListaProductos />
                 <Footer />
               </>

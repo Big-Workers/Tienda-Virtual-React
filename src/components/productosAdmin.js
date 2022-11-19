@@ -1,5 +1,6 @@
 import '../styles/productosAdmin.css';
 import { useState, useEffect } from 'react';
+import axios from "axios";
 import editar from '../resources/ajustes.png';
 import eliminar from '../resources/basura.png';
 
@@ -78,10 +79,3 @@ export const ProductosAdmin = () => {
     </>
   );
 };
-
-/*
-
-import ojo from '../resources/ver.png';
-<th>Ver</th>
-<td class="colIcono"><a href="#" ><img src={ojo} class="iconos" alt="Ver" /></a></td>
-*/     
