@@ -1,50 +1,82 @@
-import { Component } from 'react';
-import { Fragment } from 'react';
 import '../styles/productosAdmin.css';
-import gargantilla from '../resources/image_productos/gargantilla.png';
-import sombrero from '../resources/image_productos/sombrero.png';
-import bolso from '../resources/image_productos/bolso_grande.png';
-import ojo from '../resources/ver.png';
+import { useState, useEffect } from 'react';
 import editar from '../resources/ajustes.png';
-import { AgregarProducto } from './agregarProducto';
+import eliminar from '../resources/basura.png';
 
-export const ProductosAdmin = ({ data, setDataToEditProd }) => {
-    return (
-        <>
-            <div class="titulo-prod-admin">
-                    <p class="textoListProductos">Lista de Productos</p>
-            </div>
-            <div class="contenedorTabla">
-                <table class="tabla-admin-prod">
-                    <tr class="encabezados">
-                        <th class="colRef">Ref.</th>
-                        <th>Imagen</th>
-                        <th>Nombre del producto</th>
-                        <th>Cant.</th>
-                        <th>Valor Unitario</th>
-                        <th>Ver</th>
-                        <th>Editar</th>
-                    </tr>
-                    {data.map((prod) =>
-                    <tr>
-                        <td class="colRef">{prod.ref}</td>
-                        <td class="columnaImagen"><img src={prod.img} class="imagenProducto" alt="Gargantilla" /></td>
-                        <td>{prod.Name}</td>
-                        <td>{prod.Inventario}</td>
-                        <td>$ {prod.Precio}</td>
-                        <td class="colIcono"><a href="#" ><img src={ojo} class="iconos" alt="Ver" /></a></td>
-                        <td class="colIcono"><a href="/Admin-Nuevo-Producto" onClick={data.map((prod) => <AgregarProducto key={prod.id}  />)}><img src={editar} class="iconos" alt="Ver" /></a></td>
-                    </tr>
-                    )};
-                </table>
-            </div>
-            <div class="botonAgregar">
-                <a href="/Admin-Nuevo-Producto">
-                    <p class="textoAgregar">Agregar</p>
-                </a>
-            </div>
-        </>
-    );
+export const ProductosAdmin = () => {
+
+  const [dataProductos, setDataProductos] = useState([]);
+
+  useEffect(() => {
+    getData();
+  }, [])
+
+
+  function getData() {
+    fetch("http://localhost:5000/productos")
+      .then((resp) => resp.json())
+      .then((resp) => {
+        return setDataProductos(resp)
+      })
+      .catch((err) => console.log(err));
+  }
+
+  return (
+    <>
+    <center>
+      <div className="titulo-prod-admin">
+        <p className="textoListProductos">Lista de Productos</p>
+      </div>
+      </center>
+      <div className="contenedorTabla">
+        <table className="tabla-admin-prod">
+          <thead>
+            <tr className="encabezados">
+              <th className="colRef">Ref.</th>
+              <th>Imagen</th>
+              <th>Nombre del producto</th>
+              <th>Descripcion del producto</th>
+              <th>Cant.</th>
+              <th>Valor Unitario</th>
+              <th>Editar</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            {dataProductos.map((prod) =>
+              <tr>
+                <td className="colRef">{prod.referencia}</td>
+                <td className="columnaImagen">
+                  <img src={prod.imagen} className="imagenProducto" alt="ImagenProducto" />
+                </td>
+                <td>{prod.nombre}</td>
+                <td>{prod.descripcion}</td>
+                <td>{prod.stock}</td>
+                <td>$ {prod.precio}</td>
+                <td className="colIcono">
+                  <a href={`/Admin-Modificar-Producto/${prod._id}`} className="iconos" alt="Editar" >
+                    <img src={editar} className="iconos" alt="Editar" />
+                  </a>
+                </td>
+                <td className="colIcono">
+                  <a href={`/Admin-Eliminar-Producto/${prod._id}`} className="iconos" alt="Eliminar" >
+                    <img src={eliminar} className="iconos" alt="Eliminar" />
+                  </a>
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+      <center>
+      <div className="botonAgregar">
+        <a href="/Admin-Nuevo-Producto">
+          <p className="textoAgregar">Agregar nuevo producto</p>
+        </a>
+      </div>
+      </center>
+    </>
+  );
 };
 
 

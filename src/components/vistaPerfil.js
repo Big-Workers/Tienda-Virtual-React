@@ -9,22 +9,22 @@ export class Perfil extends Component {
       <Fragment>
         <section>
           <center>
-            <div class="containerFormato">
-              <div class="contenedor-elementos">
-                <p class="img-item">
-                  <img class="fotoPerfil" src={fotoPerfil} alt="Foto Perfil"></img>
+            <div className="containerFormato">
+              <div className="contenedor-elementos">
+                <p className="img-item">
+                  <img className="fotoPerfil" src={fotoPerfil} alt="Foto Perfil"></img>
                 </p>
-                <div class="contenido-lista">
-                  <p class="list-item">Pepito Perez</p>
-                  <p class="list-item">Pepito.Perez@mail.co</p>
-                  <p class="list-item">312 312 5544</p>
-                  <p class="list-item">Calle falsa 5casa 4</p>
-                  <p class="list-item">contraseña</p>
+                <div className="contenido-lista">
+                  <p className="list-item">Pepito Perez</p>
+                  <p className="list-item">Pepito.Perez@mail.co</p>
+                  <p className="list-item">312 312 5544</p>
+                  <p className="list-item">Calle falsa 5casa 4</p>
+                  <p className="list-item">contraseña</p>
                 </div>
-                <div class="button-edit">
+                <div className="button-edit">
                   <a href="/Editar-Perfil">
                     <img
-                      class="botonEditar"
+                      className="botonEditar"
                       src={botonEditar}
                       alt="Boton editar"
                     ></img>

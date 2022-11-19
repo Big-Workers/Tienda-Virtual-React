@@ -7,13 +7,13 @@ export class Formulariologin extends Component {
     return (
       <Fragment>
         <center>
-          <div class="contenedor-login">
-            <div class="formulario">
-              <h2 class="titulo-formulario">Iniciar Sesión</h2>
-              <form class="formatito">
+          <div className="contenedor-login">
+            <div className="formulario">
+              <h2 className="titulo-formulario">Iniciar Sesión</h2>
+              <form className="formatito">
                 <label for="usuario o email"></label>
                 <input
-                  class="campotex"
+                  className="campotex"
                   type="text"
                   name="usuario o email"
                   placeholder="Usuario o Email"
@@ -22,7 +22,7 @@ export class Formulariologin extends Component {
                 <br></br>
                 <label for="contraseña"></label>
                 <input
-                  class="campotex"
+                  className="campotex"
                   type="text"
                   name="Contraseña"
                   placeholder="Contraseña"
@@ -36,11 +36,11 @@ export class Formulariologin extends Component {
               <div className="pass">
                 <br></br>
                 <br></br>
-                <a href="/Home" class="input">
+                <a href="/Home" className="input">
                   ¿Olvidaste tu contraseña?
                 </a>
                 <br></br>
-                <a href="/Registrarse" class="input">
+                <a href="/Registrarse" className="input">
                   Registrarse
                 </a>
               </div>

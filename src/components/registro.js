@@ -5,43 +5,43 @@ export class Registro extends Component {
   render() {
     return (
       <center>
-        <div class="contenedor-login">
+        <div className="contenedor-login">
         <center>
-          <div class="contenedor-login">
-            <div class="formulario">
-              <h2 class="titulo-formulario">Registrarse</h2>
-              <form class="formatito">
+          <div className="contenedor-login">
+            <div className="formulario">
+              <h2 className="titulo-formulario">Registrarse</h2>
+              <form className="formatito">
                 <label for="usuario o email"></label>
                 <input
-                  class="campotex"
+                  className="campotex"
                   type="text"
                   name="usuario o email"
                   placeholder="Nombre"
                 />
                 <label for="correo"></label>
                 <input
-                  class="campotex"
+                  className="campotex"
                   type="text"
                   name="correo"
                   placeholder="Correo"
                 />
                 <label for="Telefono"></label>
                 <input
-                  class="campotex"
+                  className="campotex"
                   type="tel"
                   name="Telefono"
                   placeholder="Telefono"
                 />
                 <label for="Direccion"></label>
                 <input
-                  class="campotex"
+                  className="campotex"
                   type="text"
                   name="Dirección"
                   placeholder="Direccion"
                 />
                 <label for="usuario o email"></label>
                 <input
-                  class="campotex"
+                  className="campotex"
                   type="text"
                   name="usuario o email"
                   placeholder="Nombre"
@@ -55,7 +55,7 @@ export class Registro extends Component {
               <div className="pass">
                 <br></br>
                 <br></br>
-                <a href="/" class="input">
+                <a href="/" className="input">
                   ¿Ya tienes una cuenta?
                 </a>
                 </div>

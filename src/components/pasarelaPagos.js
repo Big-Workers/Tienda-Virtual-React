@@ -47,10 +47,10 @@ export class PasarelaPagos extends Component {
                                 <input type="text" placeholder="(opcional)" className="input-dir-opcional"></input>
                             </div>
                         </form>
-                        <div class="div-boton">
-                            <div class="boton-continuar">
+                        <div className="div-boton">
+                            <div className="boton-continuar">
                                 <a href="/Aprobado">
-                                    <p class="texto-continuar">Continuar</p>
+                                    <p className="texto-continuar">Continuar</p>
                                 </a>
                             </div>
                         </div>

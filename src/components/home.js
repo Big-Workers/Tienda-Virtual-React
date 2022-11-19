@@ -7,8 +7,8 @@ export class Home extends Component {
     return (
       <Fragment>
         <center>
-          <div class="contenedor-home">
-            <h1 class="titulo-home">Tienda Virtual</h1>
+          <div className="contenedor-home">
+            <h1 className="titulo-home">Tienda Virtual</h1>
             <img src={logo} alt="logo artesanias"></img>
           </div>
         </center>

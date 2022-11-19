@@ -1,102 +1,95 @@
-import { Fragment } from "react";
-import { Component } from "react";
-import React, { useState } from 'react';
+import { useState } from 'react';
 import "../styles/agregarProducto.css";
 
-const inventarioVacio = [
-  {
-    "id": null,
-    "ref": "",
-    "img": "",
-    "Name": "",
-    "Descripcion": "",
-    "Precio": null,
-    "Inventario": null,
-    "vendidos": null
-  }];
+export const AgregarProducto = () => {
 
-export const AgregarProducto = ({ prod, setDataToEditProd, crearProducto, actualizarProducto }) => {
-  const [invent, setInvent] = useState(inventarioVacio);
+  const [referencia, setReferencia]=useState("")
+  const [nombre, setNombre]=useState("")
+  const [descripcion, setDescripcion]=useState("")
+  const [stock, setStock]=useState("")
+  const [imagen, setImagen]=useState("")
+  const [precio, setPrecio]=useState("")
 
-  const Cambio = (e) => {
-    setInvent({
-      ...invent,
-      [e.target.name]: e.target.value
-    });
-  };
+  function agregarProducto() {
+    var producto = {
+      referencia: referencia,
+      nombre: nombre,
+      descripcion: descripcion,
+      stock: stock,
+      imagen: imagen,
+      precio: precio,
+      estado: true,
+      enCarrito: false
+    }
+        
+    const datosJSON = JSON.stringify(producto)       
+    
 
-  const Submit = (e) => {
-    e.preventDefault();
-
-
-    if (invent.id === null) {
-      crearProducto(invent);
-    } else {
-      actualizarProducto(invent);
-    };
-
-    Reset();
-  };
-
-  const Reset = (e) => {
-    setInvent(inventarioVacio);
-    setDataToEditProd(null);
-
-  }
+    fetch("http://localhost:5000/nuevoProducto", {
+        method: "POST",
+        body: datosJSON,
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+    //Comprobacion  de los datos
+        alert("Producto agregado correctamente")
+}
+  
   return (
     <>
       <center>
-        <div class="formato">
-          <h2 class="titulo-formato">AGREGAR PRODUCTO</h2>
-          <form class="format" onSubmit={Submit}>
-            <label for="Nombre del Producto"></label>
+        <div className="formato">
+          <h2 className="titulo-formato">AGREGAR PRODUCTO</h2>
+          <form className="format" >
             <input
-              class="campo"
+              className="campo"
               type="text"
-              name="Nombre del Producto"
+              placeholder="Referencia del Producto"
+              onChange={(e) => {setReferencia(e.target.value)}} value={referencia}
+            />
+            <br></br>
+            <input
+              className="campo"
+              type="text"
               placeholder="Nombre del Producto"
-              onChange={Cambio} value={invent.Name}
+              onChange={(e) => {setNombre(e.target.value)}} value={nombre}
             />
             <br></br>
-            <label for="Nonbre del Producto"></label>
             <input
-              class="campo"
+              className="campo"
               type="text"
-              name="Nombre del Producto"
-              placeholder="Descripción"
-              onChange={Cambio} value={invent.Descripcion}
+              placeholder="Descripción del producto"
+              onChange={(e) => {setDescripcion(e.target.value)}} value={descripcion}
             />
             <br></br>
-            <label for="Nonbre del Producto"></label>
             <input
-              class="campo"
+              className="campo"
               type="text"
-              name="Nombre del Producto"
               placeholder="Cantidad en Stock"
-              onChange={Cambio} value={invent.Inventario}
+              onChange={(e) => {setStock(e.target.value)}} value={stock}
             />
             <br></br>
-            <label for="Nonbre del Producto"></label>
             <input
-              class="campo"
+              className="campo"
               type="text"
-              name="Nombre del Producto"
               placeholder="Precio Unitario de venta"
-              onChange={Cambio} value={invent.Precio}
+              onChange={(e) => {setPrecio(e.target.value)}} value={precio}
             />
             <br></br>
-            <label for="Nonbre del Producto"></label>
+            <label className="titulo-formato">Imagen del producto
+            <br></br>
             <input
-              class="Seleccion"
+              className="Seleccion"
               type="file"
-              name="Nombre del Producto"
               placeholder="Añadir Imagenes"
-              onChange={Cambio} value={invent.img}
+              onChange={(e) => {setImagen(e.target.value)}} value={imagen}
             />
-            <div class="Boton-agregar-producto">
-              <a type="submit" href="/Admin-Productos" onClick={Submit} className="bton elemento" >
-                Ingresar
-              </a>
+            </label>
+            <div className="Boton-agregar-producto">
+              <button onClick={agregarProducto} className="bton elemento" >
+                <a href="/Admin-Productos">Guardar producto</a>
+              </button>
             </div>
           </form>
         </div>

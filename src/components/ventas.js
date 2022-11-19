@@ -9,7 +9,7 @@ export class Ventas extends Component {
   render() {
     return (
       <center>
-        <div class="contenedor-ventas">
+        <div className="contenedor-ventas">
           <table className="tabla-ventas" border="1" cellpadding>
             <tr>
               <th> Ref </th>
@@ -21,7 +21,7 @@ export class Ventas extends Component {
             <tr>
               <td>0153</td>
               <td>
-                <img class="img-ventas" src={img_1} alt="producto"></img>
+                <img className="img-ventas" src={img_1} alt="producto"></img>
               </td>
               <td>Gargantilla multicolor</td>
               <td>1</td>
@@ -30,7 +30,7 @@ export class Ventas extends Component {
             <tr>
               <td>0153</td>
               <td>
-                <img class="img-ventas" src={img_2} alt="producto"></img>
+                <img className="img-ventas" src={img_2} alt="producto"></img>
               </td>
               <td>Bolso Grande</td>
               <td>1</td>
@@ -39,7 +39,7 @@ export class Ventas extends Component {
             <tr>
               <td>0153</td>
               <td>
-                <img class="img-ventas" src={img_3} alt="producto"></img>
+                <img className="img-ventas" src={img_3} alt="producto"></img>
               </td>
               <td>Sombrero Fucsia</td>
               <td>1</td>
@@ -48,7 +48,7 @@ export class Ventas extends Component {
             <tr>
               <td>0153</td>
               <td>
-                <img class="img-ventas" src={img_4} alt="producto"></img>
+                <img className="img-ventas" src={img_4} alt="producto"></img>
               </td>
               <td>Sombrero Hombre</td>
               <td>1</td>

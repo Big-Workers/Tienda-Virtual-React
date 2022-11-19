@@ -5,18 +5,18 @@ export class Rechazado extends Component{
     render(){
         return(
             <center>
-                <div class="contenedor-aprobacion">
-                    <h2 class="rechazado">Transaccion rechazada</h2>
+                <div className="contenedor-aprobacion">
+                    <h2 className="rechazado">Transaccion rechazada</h2>
                 </div>
                 <div className="contenedor-resumen-aprobacion">
-              <h4 class="pedido-rechazado">Su pedido no fue procesado</h4>
-              <div class="texto-rechazado">
-                <h3 class="contenido-texto-rechazado">Consulte con su entidad bancaria.</h3>
+              <h4 className="pedido-rechazado">Su pedido no fue procesado</h4>
+              <div className="texto-rechazado">
+                <h3 className="contenido-texto-rechazado">Consulte con su entidad bancaria.</h3>
               </div>
-              <div class="div-boton2">
-                <div class="boton-reintentar">
+              <div className="div-boton2">
+                <div className="boton-reintentar">
                   <a href="/Carrito">
-                    <p class="texto-pagar-ahora">Reintentar</p>
+                    <p className="texto-pagar-ahora">Reintentar</p>
                   </a>
                 </div>
               </div>

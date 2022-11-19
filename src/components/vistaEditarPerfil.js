@@ -9,56 +9,56 @@ export class EditarPerfil extends Component {
       <Fragment>
         <section>
           <center>
-            <div class="containerFormato-editar">
-              <div class="contenedor-elementos-editar">
-                <p class="img-item-editar">
+            <div className="containerFormato-editar">
+              <div className="contenedor-elementos-editar">
+                <p className="img-item-editar">
                   <img
-                    class="fotoPerfil-editar"
+                    className="fotoPerfil-editar"
                     src={fotoPerfil}
                     alt="Foto Perfil"
                   ></img>
                 </p>
-                <form class="formulario-editar">
+                <form className="formulario-editar">
                   <label for="Nombre"></label>
                   <input
-                    class="list-item-editar"
+                    className="list-item-editar"
                     type="text"
                     name="Nombre"
                     placeholder="Pepito Perez"
                   />
                   <label for="Correo"></label>
                   <input
-                    class="list-item-editar"
+                    className="list-item-editar"
                     type="email"
                     name="Correo"
                     placeholder="Pepito.Perez@mail.co"
                   />
                   <label for="Celular"></label>
                   <input
-                    class="list-item-editar"
+                    className="list-item-editar"
                     type="tel"
                     name="Celular"
                     placeholder="312 312 5544"
                   />
                   <label for="Dirección"></label>
                   <input
-                    class="list-item-editar"
+                    className="list-item-editar"
                     type="text"
                     name="Dirección"
                     placeholder="Calle falsa 5casa 4"
                   />
                   <label for="Contraseña"></label>
                   <input
-                    class="list-item-editar"
+                    className="list-item-editar"
                     type="password"
                     name="Contraseña"
                     placeholder="contraseña"
                   />
                 </form>
-                <div class="button-edit-editar">
+                <div className="button-edit-editar">
                   <a href="/Perfil">
                     <img
-                      class="botonEditar-editar"
+                      className="botonEditar-editar"
                       src={botonGuardar}
                       alt="Boton editar"
                     ></img>

@@ -1,37 +1,70 @@
-import { Fragment } from "react";
-import { Component } from "react";
 import "../styles/vistaListaProductos.css";
+import { useState, useEffect } from 'react';
+import axios from "axios";
 import iconoCarrito from "../resources/carrito-de-compras-azul.png";
 
-export const ListaProductos = ({ data }) => {
+
+export const ListaProductos = () => {
+
+  const [dataProductos, setDataProductos] = useState([]);
+
+  useEffect(() => {
+    getData();
+  }, [])
+
+  //se obtiene los productos de la base de datos
+  function getData() {
+    fetch("http://localhost:5000/productosStock")
+      .then((resp) => resp.json())
+      .then((resp) => {
+        return setDataProductos(resp)
+      })
+      .catch((err) => console.log(err));
+  };
+
+  //se agrega el producto al carrito
+  const addProductosCarrito = async (producto) => {
+    const { nombre, imagen, precio } = producto;
+
+    await axios.post("http://localhost:5000/productosCarrito", { nombre, imagen, precio });
+
+    getData();
+  };
+
   return (
-    <div class="container-productos">
-      {data.map((prod) =>
-        <div class="producto">
-          <div class="imagen-producto-box">
+    <div className="container-productos">
+      {dataProductos.map((prod) =>
+        <div className="producto">
+          <div className="imagen-producto-box">
             <img
-              class="imagen-producto"
+              className="imagen-producto"
               alt="Imagen de Producto"
-              src={(prod.img)}
+              src={prod.imagen}
             ></img>
           </div>
-          <div class="info-producto">
+          <div className="info-producto">
             <center>
-              <h2 class="titulo">{prod.Name}</h2>
-              <p class="descripcion">
-                {prod.Descripcion}{" "}
+              <h2 className="titulo">{prod.nombre}</h2>
+              <p className="descripcion">
+                {prod.descripcion}{" "}
               </p>
             </center>
-            <h2 class="precio-lista-productos">$ {prod.Precio}</h2>
-            <div class="opciones-prod">
-              <select class="select-cantidad">
+            <h2 className="precio-lista-productos">$ {prod.precio}</h2>
+            <div className="opciones-prod">
+              {/*} <select className="select-cantidad">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
-              </select>
-              <button class="boton-agregar">Agregar</button>
+                </select>*/}
+              <div>
+                {!prod.enCarrito ? (
+                  <a className="boton-agregar" href="#" onClick={() => addProductosCarrito(prod)}>Agregar</a>
+                ) : (
+                  <a className="boton-agregar" >En el carrito</a>
+                )}
+              </div>
               <img
-                class="icono-carrito"
+                className="icono-carrito"
                 alt="icono carrito"
                 src={iconoCarrito}
               ></img>

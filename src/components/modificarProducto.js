@@ -1,71 +1,103 @@
-import { Fragment } from "react";
-import { Component } from "react";
-import "../styles/agregarProducto.css";
+import "../styles/modificarProducto.css";
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { ProductoItem } from "./productoItem";
 
-export class ModificarProducto extends Component {
-  render() {
-    return (
-      <Fragment>
-        <center>
-          <div class="formato">
-            <h2 class="titulo-formato">MODIFICAR PRODUCTO</h2>
-            <form class="format">
-              <label for="Nombre del Producto"></label>
-              <input
-                class="campo"
-                type="text"
-                name="Nombre del Producto"
-                placeholder="Nombre del Producto"
-              />
-              <br></br>
-              <label for="Nonbre del Producto"></label>
-              <input
-                class="campo"
-                type="text"
-                name="Nombre del Producto"
-                placeholder="Descripción"
-              />
-              <br></br>
-              <label for="Nonbre del Producto"></label>
-              <input
-                class="campo"
-                type="text"
-                name="Nombre del Producto"
-                placeholder="Cantidad en Stock"
-              />
-              <br></br>
-              <label for="Nombre del Producto"></label>
-              <input
-                class="campo"
-                type="text"
-                name="Nombre del Producto"
-                placeholder="Precio Unitario de Venta"
-              />
-              <br></br>
-              <label for="Nombre del Producto"></label>
-              <input
-                class="campo"
-                type="text"
-                name="Nombre del Producto"
-                placeholder="Precio Unitario de compra"
-              />
-              <br></br>
-              <label for="Nombre del Producto"></label>
-              <input
-                class="Seleccion"
-                type="file"
-                name="Nombre del Producto"
-                placeholder="Añadir Imagenes"
-              />
-            </form>
-            <div class="Boton-agregar-producto">
-              <button onclick="bton" className="bton elemento">
-                Guardar
-              </button>
-            </div>
-          </div>
-        </center>
-      </Fragment>
-    );
+
+export const ModificarProducto = () => {
+
+  const params = useParams()//para poder utilizar el id enviado por la url
+  const [dataProductos, setDataProductos] = useState([]);
+
+  useEffect(() => {
+    getData();
+  }, [])
+
+
+  function getData() {
+    fetch(`http://localhost:5000/productos/${params._id}`)//obtengo los datos del producto enviando el id al backend
+      .then((resp) => resp.json())
+      .then((resp) => {
+        return setDataProductos(resp)
+      })
+      .catch((err) => console.log(err));
   }
+
+  function modificarProducto() {
+    const datosJSON = JSON.stringify(dataProductos)//se convierte el producto con los atributos seteados a json
+    fetch(`http://localhost:5000/modificarProducto/${params._id}`, {//envio el id del producto a modificar al backend
+      method: "PUT",
+      body: datosJSON,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    alert("Producto modificado correctamente")//mensaje en pantalla
+  }
+
+  return (
+    <>
+      <center>
+        <div className="div-modificar-producto">
+          <ProductoItem data={params._id} />{/*llamo el componente que muestra los datos del producto enviando el id*/}
+          <h3 className="titulo-modificar-producto">INGRESE LOS NUEVOS DATOS</h3>
+          <form className="form-modificar-producto">
+            <input
+              className="input-modificar-producto"
+              type="text"
+              placeholder="Referencia del producto"
+              onChange={(e) => { setDataProductos({ ...dataProductos, referencia: e.target.value }) }}//obtengo los valores ingresados en cada input y lo seteo en cada propiedad del producto
+              value={dataProductos.referencia}
+            />
+            <br></br>
+            <input
+              className="input-modificar-producto"
+              type="text"
+              placeholder="Nombre del producto"
+              onChange={(e) => { setDataProductos({ ...dataProductos, nombre: e.target.value }) }}
+              value={dataProductos.nombre}
+            />
+            <br></br>
+            <input
+              className="input-modificar-producto"
+              type="text"
+              placeholder="Descripción del producto"
+              onChange={(e) => { setDataProductos({ ...dataProductos, descripcion: e.target.value }) }}
+              value={dataProductos.descripcion}
+            />
+            <br></br>
+            <input
+              className="input-modificar-producto"
+              type="text"
+              name="Nombre del Producto"
+              placeholder="Cantidad en Stock"
+              onChange={(e) => { setDataProductos({ ...dataProductos, stock: e.target.value }) }}
+              value={dataProductos.stock}
+            />
+            <br></br>
+            <input
+              className="input-modificar-producto"
+              type="text"
+              placeholder="Precio de Venta"
+              onChange={(e) => { setDataProductos({ ...dataProductos, precio: e.target.value }) }}
+              value={dataProductos.precio}
+            />
+            <br></br>
+            <input
+              className="file-modificar-producto"
+              type="file"
+              placeholder="Añadir Imagenes"
+            />
+          </form>
+          <div className="boton-guardar-modificar-producto">
+            <button onClick={modificarProducto} className="boton-guardar-modificar">{/*al hacer click en guardar llama la funcion modificar producto*/}
+              <a href="/Admin-Productos">Guardar</a>
+            </button>
+          </div>
+        </div>
+      </center>
+
+    </>
+  );
+
 }
