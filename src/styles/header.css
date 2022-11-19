@@ -9,7 +9,6 @@ body {
     top: 0px;
     position: fixed;
     width: 100%;
-    margin-top: 0;
 }
 
 .logo {
@@ -22,14 +21,14 @@ body {
     margin: 15px 5px;
     border-radius: 50%;
     float: right;
-    margin-right: 0px;
+    margin-right: 10px;
 }
 
  .divFondoIconos:hover{  
     margin: 15px 5px;
     border-radius: 50%;
     float: right;
-    margin-right: 0px;
+    margin-right: 10px;
     background-color: #05c7ba;  
 }
 
@@ -37,7 +36,7 @@ body {
     margin: 15px 5px;
     border-radius: 50%;
     float: right;
-    margin-right: 0px;
+    margin-right: 10px;
     background-color: #07e9da;  
 }
 

@@ -63,40 +63,24 @@ export const CarritoCompras = () => {
             </table>
           </div>
           <div className="contenedor-resumen">
-            <h4>Resumen de la compra</h4>
-            <form className="div-titulo">
-              <p className="text-Total">Total a pagar:</p>
-              <p className="txt-cantidad">(3)</p>
-              <p className="text-valor"> $ 680.000</p>
-            </form>
-            <form className="div-envio">
-              <p className="text-Total">Envio:</p>
-              <p className="text-valor"> $ 15.000</p>
-            </form>
-            <br />
-            <br />
-            <br />
-            <form className="div-total-pagar">
-              <p className="text-Total">Total</p>
-              <p className="text-valor"> $ 795.000</p>
-            </form>
-            <div className="div-boton">
-              <div className="boton-seguir-comprando">
-                <a href="/Productos">
-                  <p className="texto-seguir-comprando">seguir comprando</p>
-                </a>
+              <h4>Resumen de la compra</h4>
+              <form className="div-titulo">
+                <p className="text-Total">Total a pagar:</p>
+                <p className="txt-cantidad">(3)</p>
+                <p className="text-valor"> $ 680.000</p>
+              </form>
+              <br />
+              <br />
+              <br />
+              <form className="div-total-pagar">
+                <p className="text-Total">Total</p>
+                <p className="text-valor"> $ 795.000</p>
+              </form>
+              <div class="div-boton-finzalizar">
+                <a class="boton-finalizar" href="/Aprobado">Pagar ahora</a>
               </div>
             </div>
-            <div className="div-boton2">
-              <div className="boton-pagar-ahora">
-                <a href="/Pasarela">
-                  <p className="texto-pagar-ahora">¡Pagar ahora!</p>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </center>
-    </>
-  );
+        </center>  
+        </>    
+    );  
 }

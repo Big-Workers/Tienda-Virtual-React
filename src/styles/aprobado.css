@@ -1,41 +1,30 @@
 .contenedor-aprobacion{
     margin-top: 5%;
 }
-.pedido-rechazado{
-    margin: 10% 0;
-}
-
-.boton-reintentar{
-    margin: 15% 35%;
-    background-color: #00a89e;
-}
-
 .aprobado{
     color: white;
     background-color: #00a89e;
     border-radius: 20px;
     width: 300px;
 }
-.rechazado{
-    color: white;
-    background-color: #b80a53;
-    border-radius: 20px;
-    width: 300px; 
-}
-.texto-rechazado{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-}
-.contenido-texto-rechazado{
-    margin: 20% 0;
-}
 .contenedor-resumen-aprobacion {
+    margin-top: 40px;
     width: 260px;
-    height: 320px;
+    height: 280px;
     background-color: white;
     border-radius: 3%;
     padding: 10px 10px;
     padding-bottom: 30px;
+}
+.div-boton-finzalizar{
+    text-align: center;
+    margin: 20px;
+    background-color: #00a89e;
+    width: 100px;
+    height: 25px;
+    border-radius: 10px;
+}
+.boton-finalizar{
+    color: white;
+    text-decoration: none;
 }

@@ -98,18 +98,12 @@ body {
     font-family: 'Nunito', sans-serif;
 }
 
-td,
-th {
-    border: 1px solid #9ba3a6;
-    padding: 5px;
-}
-
 .colRef {
     width: 10%;
 }
 
 .colIcono {
-    width: 5%;
+    width: 70px;
 }
 
 .encabezados {
@@ -117,7 +111,6 @@ th {
     color: white; 
     font-size: medium;
 }
-
 .imagenProducto {
     width: 120px;
 }
@@ -125,5 +118,3 @@ th {
 .iconos {
     width: 30px;
 }
-
-

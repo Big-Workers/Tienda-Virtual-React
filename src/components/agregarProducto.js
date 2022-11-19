@@ -37,7 +37,7 @@ export const AgregarProducto = () => {
 }
   
   return (
-    <>
+    <Fragment>
       <center>
         <div className="formato">
           <h2 className="titulo-formato">AGREGAR PRODUCTO</h2>
@@ -94,7 +94,6 @@ export const AgregarProducto = () => {
           </form>
         </div>
       </center>
-    </>
+    </Fragment>
   );
 };
-

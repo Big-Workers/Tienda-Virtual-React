@@ -79,7 +79,9 @@ export const ProductosAdmin = () => {
   );
 };
 
+/*
 
-
-
-
+import ojo from '../resources/ver.png';
+<th>Ver</th>
+<td class="colIcono"><a href="#" ><img src={ojo} class="iconos" alt="Ver" /></a></td>
+*/     

@@ -49,7 +49,7 @@ export class Registro extends Component {
               </form>
               <div>
                 <button onclick="btn" className="btn element">
-                  <a href="/Home">Registrarse</a>
+                  <a class="line" href="/Home">Registrarse</a>
                 </button>
               </div>
               <div className="pass">

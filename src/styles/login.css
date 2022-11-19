@@ -57,6 +57,7 @@
 }
 
 .input {
+  text-decoration: none;
   width: 400px;
   align-items: center;
   justify-content: center;
@@ -65,7 +66,13 @@
   color: #00a89e;
   font-weight: 700;
 }
-
+.line{
+  text-decoration: none;
+  color: white;
+}
+.line:hover{
+  color: #00a89e;
+}
 .element {
   width: 30%;
   height: 100%;

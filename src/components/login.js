@@ -30,7 +30,7 @@ export class Formulariologin extends Component {
               </form>
               <div>
                 <button onclick="btn" className="btn element">
-                  <a href="/Home">Ingresar</a>
+                  <a class="line" href="/Home">Ingresar</a>
                 </button>
               </div>
               <div className="pass">
