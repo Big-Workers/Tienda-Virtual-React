@@ -16,11 +16,6 @@ export const CarritoCompras = () => {
       .catch((err) => console.log(err));
   };
 
-  useEffect(() => {
-    getProductosCarrito();
-    resumenCarrito("cantidad");
-    resumenCarrito("precio");
-  }, []);
 
   const editarItemCarrito = async (id, query, cantidad) => {
     if (query === "del" && cantidad === 1) {
@@ -35,13 +30,34 @@ export const CarritoCompras = () => {
         .then(({ data }) => console.log(data));
     }
     getProductosCarrito();
+    resumenCarrito("cantidad");
+    resumenCarrito("precio");
   };
 
-  const resumenCarrito = async ( query ) => {
+  const resumenCarrito = async (query) => {
     await axios
-    .get(`http://localhost:5000/resumenCarrito?query=${query}`)
-    .then(({ data }) => console.log(data));
+      .get(`http://localhost:5000/putResumenCarrito?query=${query}`)
+      .then(({ data }) => console.log(data));
+    getResumenCarrito();
   };
+
+  const [resumenItems, setResumenItems] = useState([]);
+
+  function getResumenCarrito() {
+    fetch("http://localhost:5000/getResumenCarrito")
+      .then((resp) => resp.json())
+      .then((resp) => {
+        return setResumenItems(resp)
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    getProductosCarrito();
+    getResumenCarrito();
+    resumenCarrito("cantidad");
+    resumenCarrito("precio");
+  }, []);
 
   return (
     <>
@@ -69,11 +85,11 @@ export const CarritoCompras = () => {
                     <td>
                       {prod.cantidad}
                       &nbsp;
-                      <button onClick={() => editarItemCarrito(prod._id, "add", prod.cantidad)}>+</button>
+                      <button onClick={()=> editarItemCarrito(prod._id, "add", prod.cantidad)}>+</button>
                       {prod.cantidad === 1 ? (
                         <button>-</button>
                       ) : (
-                        <button onClick={() => editarItemCarrito(prod._id, "del", prod.cantidad)}>-</button>
+                        <button onClick={()=>editarItemCarrito(prod._id, "del", prod.cantidad)}>-</button>
                       )}
 
                     </td>
@@ -93,25 +109,22 @@ export const CarritoCompras = () => {
               )}
             </table>
           </div>
-
-          <div className="contenedor-resumen">
-            <h4>Resumen de la compra</h4>
-            <form className="div-titulo">
-              <p className="text-Total">Total a pagar:</p>
-              <p className="txt-cantidad">()</p>
-              <p className="text-valor">680.000</p>
-            </form>
-            <br />
-            <br />
-            <br />
-            <form className="div-total-pagar">
-              <p className="text-Total">Total</p>
-              <p className="text-valor"> $ 795.000</p>
-            </form>
-            <div class="div-boton-finzalizar">
-              <a class="boton-finalizar" href="/Aprobado">Pagar ahora</a>
+          {resumenItems.map((datos) =>
+            <div className="contenedor-resumen">
+              <h4 className="titulo-resumen-compra">Resumen de la compra</h4>
+              <form className="div-titulo">
+                <p className="text-Total">Total productos en carrito:</p>
+                <p className="text-valor">{datos.cantidad}</p>
+              </form>
+              <form className="div-total-pagar">
+                <p className="text-Total text-total-big">Total de la compra:</p>
+                <p className="text-valor text-valor-big"> $ {datos.total}</p>
+              </form>
+              <div className="div-boton-finzalizar">
+                <a className="boton-finalizar" href="/Aprobado">Pagar ahora</a>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </center>
     </>

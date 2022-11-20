@@ -40,6 +40,8 @@ export const ModificarProducto = () => {
       <center>
         <div className="div-modificar-producto">
           <ProductoItem data={params._id} />{/*llamo el componente que muestra los datos del producto enviando el id*/}
+          <br></br>
+          <br></br>
           <h3 className="titulo-modificar-producto">INGRESE LOS NUEVOS DATOS</h3>
           <form className="form-modificar-producto">
             <input
@@ -83,6 +85,7 @@ export const ModificarProducto = () => {
               value={dataProductos.precio}
             />
             <br></br>
+            <p>Imagen del producto</p>
             <input
               className="file-modificar-producto"
               type="file"
@@ -93,6 +96,7 @@ export const ModificarProducto = () => {
             <button onClick={modificarProducto} className="boton-guardar-modificar">{/*al hacer click en guardar llama la funcion modificar producto*/}
               <a href="/Admin-Productos">Guardar</a>
             </button>
+            <button className="boton-guardar-modificar" ><a href="/Admin-Productos">Cancelar</a></button>
           </div>
         </div>
       </center>
