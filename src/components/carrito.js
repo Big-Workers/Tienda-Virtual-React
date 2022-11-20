@@ -18,6 +18,8 @@ export const CarritoCompras = () => {
 
   useEffect(() => {
     getProductosCarrito();
+    resumenCarrito("cantidad");
+    resumenCarrito("precio");
   }, []);
 
   const editarItemCarrito = async (id, query, cantidad) => {
@@ -35,6 +37,12 @@ export const CarritoCompras = () => {
     getProductosCarrito();
   };
 
+  const resumenCarrito = async ( query ) => {
+    await axios
+    .get(`http://localhost:5000/resumenCarrito?query=${query}`)
+    .then(({ data }) => console.log(data));
+  };
+
   return (
     <>
       <center>
@@ -46,7 +54,8 @@ export const CarritoCompras = () => {
                   <th className="imagen">Imagen</th>
                   <th className="nombre-producto">Nombre</th>
                   <th className="detalles">Cantidad</th>
-                  <th className="detalles">Acciones</th>
+                  <th className="detalles">Precio</th>
+                  <th className="detalles">Sacar del carrito</th>
                 </tr>
               </thead>
               {carritoItems.map((prod) =>
@@ -61,11 +70,18 @@ export const CarritoCompras = () => {
                       {prod.cantidad}
                       &nbsp;
                       <button onClick={() => editarItemCarrito(prod._id, "add", prod.cantidad)}>+</button>
-                      <button onClick={() => editarItemCarrito(prod._id, "del", prod.cantidad)}>-</button>
+                      {prod.cantidad === 1 ? (
+                        <button>-</button>
+                      ) : (
+                        <button onClick={() => editarItemCarrito(prod._id, "del", prod.cantidad)}>-</button>
+                      )}
+
                     </td>
                     <td>
                       {" "}
                       ${(prod.precio * prod.cantidad)}
+                    </td>
+                    <td>
                       <div className="opciones-prod">
                         <a href="#" onClick={() => editarItemCarrito(prod._id, "del", 1)}>
                           <img src={basura} className="iconos" alt="icono" />
@@ -82,7 +98,7 @@ export const CarritoCompras = () => {
             <h4>Resumen de la compra</h4>
             <form className="div-titulo">
               <p className="text-Total">Total a pagar:</p>
-              <p className="txt-cantidad">(3)</p>
+              <p className="txt-cantidad">()</p>
               <p className="text-valor">680.000</p>
             </form>
             <br />
