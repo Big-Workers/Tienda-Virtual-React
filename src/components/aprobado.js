@@ -1,32 +1,44 @@
-import { Component } from "react";
 import '../styles/aprobado.css'
+import {useState, useEffect} from "react";
 
-export class Aprobado extends Component{
-    render(){
-        return(
-            <center>
-                <div className="contenedor-aprobacion">
-                    <h2 className="aprobado">Transaccion aprobada</h2>
-                </div>
-                <div className="contenedor-resumen-aprobacion">
-              <h4>Resumen de la compra</h4>
-              <form className="div-titulo">
-                <p className="text-Total">Total a pagar:</p>
-                <p className="txt-cantidad">(3)</p>
-                <p className="text-valor"> $ 680.000</p>
-              </form>
-              <br />
-              <br />
-              <br />
-              <form className="div-total-pagar">
-                <p className="text-Total">Total</p>
-                <p className="text-valor"> $ 795.000</p>
-              </form>
-                 <div class="div-boton-finzalizar">
-                  <a class="boton-finalizar"href="/Home">Finalizar                  </a>
-                </div>
-              </div>
-            </center>
-        )
-    }
+export const Aprobado = () => {
+
+  const [resumenItems, setResumenItems] = useState([]);
+
+  function getResumenCarrito() {
+    fetch("http://localhost:5000/getResumenCarrito")
+      .then((resp) => resp.json())
+      .then((resp) => {
+        return setResumenItems(resp)
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    getResumenCarrito();
+  }, []);
+
+  return (
+    <>
+    <center>
+      <h1 className="titulo-modificar-producto">Transacción Aprobada</h1>
+      {resumenItems.map((datos) =>
+        <div className="contenedor-resumen">
+          <h4 className="titulo-resumen-compra">Resumen de la compra</h4>
+          <form className="div-titulo">
+            <p className="text-Total">Total productos en carrito:</p>
+            <p className="text-valor">{datos.cantidad}</p>
+          </form>
+          <form className="div-total-pagar">
+            <p className="text-Total text-total-big">Total de la compra:</p>
+            <p className="text-valor text-valor-big"> $ {datos.total}</p>
+          </form>
+          <div className="div-boton-finzalizar">
+            <a className="boton-finalizar" href="/Productos">Terminar</a>
+          </div>
+        </div>
+      )}
+      </center>
+    </>
+  )
 }

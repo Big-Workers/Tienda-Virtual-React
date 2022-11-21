@@ -23,13 +23,13 @@ export const ProductoItem = ({ data }) => {//recibo el data con el id del produc
       {dataProductos.map((prod) =>//recorro cada propiedad del producto recibido
         <div className="datos-modificar-producto">
           <h2 className="titulo-modificar-producto">PRODUCTO A MODIFICAR</h2>
-          <p>Imagen:</p>
-          <img src={prod.imagen} className="imagenProducto" alt="ImagenProducto" />
-          <p>Referencia:  {prod.referencia}</p>
-          <p>Nombre:  {prod.nombre}</p>
-          <p>Descripción:  {prod.descripcion}</p>
-          <p>Stock:  {prod.stock}</p>
-          <p>Precio:  {prod.precio}</p>
+          <p className="textoListProductos">Imagen:</p>
+              <img src={prod.imagen} className="imagenProducto" alt="ImagenProducto" />
+              <p className="textoListProductos">Referencia: </p><p className="texto-producto-eliminar">{prod.referencia}</p>
+              <p className="textoListProductos">Nombre: </p><p className="texto-producto-eliminar"> {prod.nombre}</p>
+              <p className="textoListProductos">Descripción: </p><p className="texto-producto-eliminar"> {prod.descripcion}</p>
+              <p className="textoListProductos">Stock: </p><p className="texto-producto-eliminar"> {prod.stock}</p>
+              <p className="textoListProductos">Precio: </p><p className="texto-producto-eliminar"> {prod.precio}</p>
         </div> 
       )
     }

@@ -22,7 +22,7 @@ export const EliminarProducto = () => {
       })
       .catch((err) => console.log(err));
   }
-
+ 
   function eliminarProducto() {
 
     const datosJSON = JSON.stringify(dataProductos)
@@ -44,18 +44,19 @@ export const EliminarProducto = () => {
           {dataProductos.map((prod) =>
             <div className="datos-modificar-producto">
               <h2 className="titulo-modificar-producto">PRODUCTO A ELIMINAR</h2>
-              <p>Imagen:</p>
+              <p className="textoListProductos">Imagen:</p>
               <img src={prod.imagen} className="imagenProducto" alt="ImagenProducto" />
-              <p>Referencia:  {prod.referencia}</p>
-              <p>Nombre:  {prod.nombre}</p>
-              <p>Descripción:  {prod.descripcion}</p>
-              <p>Stock:  {prod.stock}</p>
-              <p>Precio:  {prod.precio}</p>
+              <p className="textoListProductos">Referencia: </p><p className="texto-producto-eliminar">{prod.referencia}</p>
+              <p className="textoListProductos">Nombre: </p><p className="texto-producto-eliminar"> {prod.nombre}</p>
+              <p className="textoListProductos">Descripción: </p><p className="texto-producto-eliminar"> {prod.descripcion}</p>
+              <p className="textoListProductos">Stock: </p><p className="texto-producto-eliminar"> {prod.stock}</p>
+              <p className="textoListProductos">Precio: </p><p className="texto-producto-eliminar"> {prod.precio}</p>
             </div>
           )}
+          <br></br>
           <h3 className="titulo-modificar-producto">¿ESTAS SEGURO QUE DESEAS ELIMINAR EL PRODUCTO?</h3>
-          <button onClick={eliminarProducto}><a href="/Admin-Productos">Eliminar</a></button>
-          <button><a href="/Admin-Productos">Cancelar</a></button>
+          <button className="bton elemento" onClick={eliminarProducto}><a href="/Admin-Productos">Eliminar</a></button>
+          <button className="bton elemento" ><a href="/Admin-Productos">Cancelar</a></button>
         </div>
       </center>
     </>

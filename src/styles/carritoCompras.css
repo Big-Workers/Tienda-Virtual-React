@@ -128,11 +128,19 @@ tr {
     justify-content: space-between;
 }
 
-text-Total, 
-txt-cantidad, text-valor {
+.text-Total, 
+.txt-cantidad, .text-valor {
 
     font-family: 'Nunito', sans-serif;
 
+}
+
+.text-total-big, .text-valor-big {
+    font-size: 18px;
+}
+
+.titulo-resumen-compra {
+    font-size: 20px;
 }
 
 .div-envio {
