@@ -1,24 +1,155 @@
-import logo from './logo.svg';
-import './App.css';
+import { Home } from "./components/home.js";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import { HeaderAdmin } from "./components/headerAdmin";
+import { Header } from "./components/header.js";
+import { Footer } from "./components/footer.js";
+
+import { Formulariologin } from "./components/login.js";
+
+import { Registro } from "./components/registro.js";
+
+import { Perfil } from "./components/vistaPerfil.js";
+import { EditarPerfil } from "./components/vistaEditarPerfil.js";
+
+import { ListaProductos } from "./components/vistaListaProductos.js";
+import { CarritoCompras } from "./components/carrito.js";
+
+import { Aprobado } from "./components/aprobado.js";
+
+import { ProductosAdmin } from "./components/productosAdmin.js";
+import { AgregarProducto } from "./components/agregarProducto.js";
+import { ModificarProducto } from "./components/modificarProducto.js";
+import { Ventas } from "./components/ventas";
+
+import { About } from "./components/about.js";
+import { EliminarProducto } from "./components/eliminarProducto.js";
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/Home"
+            element={
+              <>
+                <Header />
+                <Home />
+                <Footer />
+              </>
+            }
+          />
+          <Route path="/" element={<Formulariologin />} />
+          <Route path="/Registrarse" element={<Registro />} />
+          <Route
+            path="/Perfil"
+            element={
+              <>
+                <Header />
+                <Perfil />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/Editar-Perfil"
+            element={
+              <>
+                <Header />
+                <EditarPerfil />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/Productos"
+            element={
+              <>
+                <Header />
+                <ListaProductos />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/Carrito"
+            element={
+              <>
+                <Header />
+                <CarritoCompras />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/Aprobado"
+            element={
+              <>
+                <Header />
+                <Aprobado />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/Admin-Productos"
+            element={
+              <>
+                <HeaderAdmin />
+                <ProductosAdmin />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/Admin-Nuevo-Producto"
+            element={
+              <>
+                <HeaderAdmin />
+                <AgregarProducto />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/Admin-Modificar-Producto/:_id"
+            element={
+              <>
+                <HeaderAdmin />
+                <ModificarProducto />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/Admin-Eliminar-Producto/:_id"
+            element={
+              <>
+                <Header />
+                <EliminarProducto />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/Admin-Ventas"
+            element={
+              <>
+                <HeaderAdmin />
+                <Ventas />
+                <Footer />
+              </>
+            }
+          />
+
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
