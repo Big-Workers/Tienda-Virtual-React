@@ -10,7 +10,7 @@ export const Ventas = () => {
   }, []);
 
   function getData() {
-    fetch("http://localhost:5000/api/ventas")
+    fetch("http://localhost:5000/ventas")
       .then((res) => res.json())
       .then((res) => {
         console.log(res)
@@ -27,10 +27,9 @@ export const Ventas = () => {
             <tr>
               <td className="th-col-100"> Fecha </td>
               <td className="th-col-130"> Ticket </td>
-              <td className="th-col-100"> Referencia </td>
               <td> Imagen</td>
               <td> Nombre del producto </td>
-              <td> Cantidad</td>
+              <td> Unidades</td>
               <td> Precio </td>
               <td className="th-col-100"> Total </td>
             </tr>
@@ -39,11 +38,10 @@ export const Ventas = () => {
             {dataVentas.map((venta) => (
               <tr>
                 <td>{venta.fecha}</td>
-                <td>{venta.idVenta}</td>
-                <td>{venta.productos.map(producto => (<ul>{producto.referencia}</ul>))}</td>
+                <td>{venta._id}</td>
                 <td>{venta.productos.map(producto => (<img src={producto.imagen} class="img-ventas" alt="producto"></img>))}</td>
                 <td>{venta.productos.map(producto => (<ul>{producto.nombre}</ul>))}</td>
-                <td>{venta.cantidad}</td>
+                <td>{venta.productos.map(producto => (<ul>{producto.cantidad}</ul>))}</td>
                 <td>{venta.productos.map(producto => (<ul>$ {producto.precio}</ul>))}</td>
                 <td>$ {venta.total}</td>
               </tr>

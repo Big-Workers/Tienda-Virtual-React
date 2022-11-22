@@ -12,7 +12,6 @@ export const Registro = () => {
   const [telefono, setTelefono] = useState("")
   const [direccion, setDireccion] = useState("")
   const [contraseña, setContraseña] = useState("")
-  const [rol, setRol] = useState("")
 
   function registrarUsuario() {
     var usuario = {
@@ -20,7 +19,6 @@ export const Registro = () => {
       email: email,
       telefono: telefono,
       contraseña: contraseña,
-      rol: rol,
 
     }
 
@@ -82,13 +80,7 @@ export const Registro = () => {
                   placeholder="contraseña"
                   onChange={(e) => { setContraseña(e.target.value) }} value={contraseña}
                 />
-                <input
-                  className="campotex"
-                  type="text"
-                  name="rol"
-                  placeholder="rol"
-                  onChange={(e) => { setRol(e.target.value) }} value={rol}
-                />
+
                 <div>
 
                    <button onClick={registrarUsuario} className="btn element">
