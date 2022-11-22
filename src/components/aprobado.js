@@ -18,6 +18,15 @@ export const Aprobado = () => {
     getResumenCarrito();
   }, []);
 
+  function vaciarCarrito() {
+    fetch("http://localhost:5000/vaciarCarrito")
+      .then((resp) => resp.json())
+      .then((resp) => {
+        return (resp)
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <>
     <center>
@@ -34,7 +43,7 @@ export const Aprobado = () => {
             <p className="text-valor text-valor-big"> $ {datos.total}</p>
           </form>
           <div className="div-boton-finzalizar">
-            <a className="boton-finalizar" href="/Productos">Terminar</a>
+            <a className="boton-finalizar" href="/Productos" onClick={vaciarCarrito}>Terminar</a>
           </div>
         </div>
       )}
