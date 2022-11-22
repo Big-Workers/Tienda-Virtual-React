@@ -1,69 +1,110 @@
-import { Component } from "react";
 import "../styles/registro.css";
+import { useState } from 'react';
 
-export class Registro extends Component {
-  render() {
-    return (
-      <center>
-        <div className="contenedor-login">
+
+
+
+export const Registro = () => {
+
+
+  const [nombre, setNombre] = useState("")
+  const [email, setEmail] = useState("")
+  const [telefono, setTelefono] = useState("")
+  const [direccion, setDireccion] = useState("")
+  const [contraseña, setContraseña] = useState("")
+  const [rol, setRol] = useState("")
+
+  function registrarUsuario() {
+    var usuario = {
+      nombre: nombre,
+      email: email,
+      telefono: telefono,
+      contraseña: contraseña,
+      rol: rol,
+
+    }
+
+    const datosJSON = JSON.stringify(usuario)
+
+    fetch("http://localhost:5000/api/usuario", {
+      method: "POST",
+      body: datosJSON,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    //Comprobacion  de los datos
+    alert("Usuario creado correctamente")
+  }
+
+
+  return (
+    <center>
+      <div className="contenedor-login">
         <center>
           <div className="contenedor-login">
             <div className="formulario">
               <h2 className="titulo-formulario">Registrarse</h2>
-              <form className="formatito">
-                <label for="usuario o email"></label>
+              <form  className="formatito">
                 <input
                   className="campotex"
                   type="text"
-                  name="usuario o email"
-                  placeholder="Nombre"
+                  name="nombre"
+                  placeholder="nombre"
+                  onChange={(e) => { setNombre(e.target.value) }} value={nombre}
                 />
-                <label for="correo"></label>
                 <input
                   className="campotex"
                   type="text"
-                  name="correo"
-                  placeholder="Correo"
+                  name="email"
+                  placeholder="email"
+                  onChange={(e) => { setEmail(e.target.value) }} value={email}
+
                 />
-                <label for="Telefono"></label>
                 <input
                   className="campotex"
                   type="tel"
-                  name="Telefono"
-                  placeholder="Telefono"
+                  name="telefono"
+                  placeholder="telefono"
+                  onChange={(e) => { setTelefono(e.target.value) }} value={telefono}
                 />
-                <label for="Direccion"></label>
                 <input
                   className="campotex"
                   type="text"
-                  name="Dirección"
-                  placeholder="Direccion"
+                  name="direccion"
+                  placeholder="direccion"
+                  onChange={(e) => { setDireccion(e.target.value) }} value={direccion}
                 />
-                <label for="usuario o email"></label>
+                <input
+                  className="campotex"
+                  type="password"
+                  name="contraseña"
+                  placeholder="contraseña"
+                  onChange={(e) => { setContraseña(e.target.value) }} value={contraseña}
+                />
                 <input
                   className="campotex"
                   type="text"
-                  name="usuario o email"
-                  placeholder="Nombre"
+                  name="rol"
+                  placeholder="rol"
+                  onChange={(e) => { setRol(e.target.value) }} value={rol}
                 />
+                <div>
+
+                   <button onClick={registrarUsuario} className="btn element">
+                    Registrarse
+                    </button> 
+                </div>
               </form>
-              <div>
-                <button onclick="btn" className="btn element">
-                  <a class="line" href="/Home">Registrarse</a>
-                </button>
-              </div>
               <div className="pass">
-                <br></br>
-                <br></br>
                 <a href="/" className="input">
                   ¿Ya tienes una cuenta?
                 </a>
-                </div>
+              </div>
             </div>
           </div>
         </center>
-        </div>
-      </center>
-    );
-  }
+      </div>
+    </center>
+  );
 }
