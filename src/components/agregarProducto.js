@@ -76,15 +76,14 @@ export const AgregarProducto = () => {
               onChange={(e) => {setPrecio(e.target.value)}} value={precio}
             />
             <br></br>
-            <label className="titulo-formato">Imagen del producto
-            <br></br>
+            
             <input
-              className="Seleccion"
-              type="file"
-              placeholder="Añadir Imagenes"
+              className="campo"
+              type="text"
+              placeholder="URL: imagen del producto"
               onChange={(e) => {setImagen(e.target.value)}} value={imagen}
             />
-            </label>
+            
             <div className="Boton-agregar-producto">
               <button onClick={agregarProducto} className="bton elemento" >
                 <a href="/Admin-Productos">Guardar producto</a>
