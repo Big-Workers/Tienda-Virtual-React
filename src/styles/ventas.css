@@ -50,3 +50,11 @@ h1 {
 .tbody-ventas{
   background-color:  white;
 }
+
+.item-bd-ventas-tittle{
+  padding-right: 2%;
+}
+
+.item-bd-ventas{
+  padding: 0 15px;
+}

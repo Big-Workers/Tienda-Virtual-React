@@ -6,10 +6,10 @@ export const Ventas = () => {
   const [dataVentas, setDataVentas] = useState([]);
 
   useEffect(() => {
-    getData();
+    getVentas();
   }, []);
 
-  function getData() {
+  function getVentas() {
     fetch("http://localhost:5000/ventas")
       .then((res) => res.json())
       .then((res) => {
@@ -25,16 +25,38 @@ export const Ventas = () => {
         <table className="tabla-ventas" cellpadding>
           <thead class="thead-ventas">
             <tr>
-              <td className="th-col-100"> Fecha </td>
-              <td className="th-col-130"> Ticket </td>
-              <td> Imagen</td>
-              <td> Nombre del producto </td>
-              <td> Unidades</td>
-              <td> Precio </td>
-              <td className="th-col-100"> Total </td>
+              <td className="th-col-100 item-bd-ventas-tittle"> Fecha </td>
+              <td className="th-col-130 item-bd-ventas-tittle"> Factura </td>
+              <td class="item-bd-ventas-tittle"> Imagen</td>
+              <td class="item-bd-ventas-tittle"> Nombre del producto </td>
+              <td class="item-bd-ventas-tittle"> Precio c/u</td>
+              <td class="item-bd-ventas-tittle"> Unidades</td>
+              <td class="item-bd-ventas-tittle"> Cantidad</td>
+              <td className="th-col-100 item-bd-ventas-tittle"> Total Pagado</td>
             </tr>
           </thead>
           <tbody class="tbody-ventas">
+            {dataVentas.map((venta) => (
+              <tr>
+                <td class="item-bd-ventas">{venta.fecha}</td>
+                <td class="item-bd-ventas">{venta._id}</td>
+                <td class="item-bd-ventas">{venta.productos.map(producto => (<img src={producto.imagen} class="img-ventas" alt="producto"></img>))}</td>
+                <td class="item-bd-ventas">{venta.productos.map(producto => (<ul>{producto.nombre}</ul>))}</td>
+                <td class="item-bd-ventas">{venta.productos.map(producto => (<ul>$ {producto.precio}</ul>))}</td>
+                <td class="item-bd-ventas">{venta.productos.map(producto => (<ul>{producto.cantidad}</ul>))}</td>
+                <td class="item-bd-ventas">{venta.resumen.map(resume => (<ul>{resume.cantidad}</ul>))}</td>
+                <td class="item-bd-ventas">{venta.resumen.map(resume => (<ul>${resume.total}</ul>))}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </center>
+  );
+};
+/*
+
+<tbody class="tbody-ventas">
             {dataVentas.map((venta) => (
               <tr>
                 <td>{venta.fecha}</td>
@@ -47,12 +69,7 @@ export const Ventas = () => {
               </tr>
             ))}
           </tbody>
-        </table>
-      </div>
-    </center>
-  );
-};
-/*
+
 export class Ventas extends Component {
   render() {
     return (
