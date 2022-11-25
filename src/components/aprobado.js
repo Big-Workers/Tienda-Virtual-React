@@ -18,13 +18,6 @@ export const Aprobado = () => {
   }, []);
 
   function vaciarCarrito() {
-    fetch("http://localhost:5000/vaciarCarrito")
-      .then((resp) => resp.json())
-      .then((resp) => {
-        return resp;
-      })
-      .catch((err) => console.log(err));
-
     // Ejemplo implementando el metodo POST:
     async function postData(url = "", data = {}) {
       // Opciones por defecto estan marcadas con un *
@@ -47,6 +40,14 @@ export const Aprobado = () => {
     postData("http://localhost:5000/ventas", { answer: 42 }).then((data) => {
       console.log(data); // JSON data parsed by `data.json()` call
     });
+
+    //vaciar carrito
+    fetch("http://localhost:5000/vaciarCarrito")
+      .then((resp) => resp.json())
+      .then((resp) => {
+        return resp;
+      })
+      .catch((err) => console.log(err));
   }
 
   return (
