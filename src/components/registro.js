@@ -24,7 +24,7 @@ export const Registro = () => {
 
     const datosJSON = JSON.stringify(usuario)
 
-    fetch("http://localhost:5000/api/usuario", {
+    fetch("https://api-artesania-backend.up.railway.app/api/usuario", {
       method: "POST",
       body: datosJSON,
       headers: {

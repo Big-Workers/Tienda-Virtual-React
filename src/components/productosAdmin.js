@@ -17,7 +17,8 @@ export const ProductosAdmin = () => {
 
   const filtrar = (terminoBusqueda) => {
     var resultadoBusqueda = productos.filter((elemento) => {
-      if (elemento.nombre.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())) {
+      if (elemento.nombre.toString().toLowerCase().includes(terminoBusqueda.toLowerCase()) 
+      || elemento.referencia.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())) {
         return elemento;
       }
     })
@@ -30,7 +31,7 @@ export const ProductosAdmin = () => {
 
 
   function getData() {
-    fetch("http://localhost:5000/productos")
+    fetch("https://api-artesania-backend.up.railway.app/productos")
       .then((resp) => resp.json())
       .then((resp) => {
         return setDataProductos(resp),
@@ -43,6 +44,7 @@ export const ProductosAdmin = () => {
     <>
       <div className="div-buscar">
           <input
+          title="Barra de búsqueda"
             className="input-buscar"
             value={busqueda}
             onChange={handleChange}
@@ -84,12 +86,12 @@ export const ProductosAdmin = () => {
                 <td>$ {prod.precio}</td>
                 <td className="colIcono">
                   <a href={`/Admin-Modificar-Producto/${prod._id}`} className="iconos" alt="Editar" >
-                    <img src={editar} className="iconos" alt="Editar" />
+                    <img title="Editar producto" src={editar} className="iconos" alt="Editar" />
                   </a>
                 </td>
                 <td className="colIcono">
                   <a href={`/Admin-Eliminar-Producto/${prod._id}`} className="iconos" alt="Eliminar" >
-                    <img src={eliminar} className="iconos" alt="Eliminar" />
+                    <img title="Eliminar producto" src={eliminar} className="iconos" alt="Eliminar" />
                   </a>
                 </td>
               </tr>

@@ -61,7 +61,6 @@
 .precio-lista-productos{
     font-family: 'Arial Narrow Bold', sans-serif;
     color: #0caca2;
-    padding-left: 25px;
     margin: 0;
     height: 35px;
 }
@@ -95,7 +94,7 @@
     display: flex;
     position: static;
     align-content: center;
-    margin-left: 20px;
+    margin-left: 50px;
 }
 
 .input-buscar {

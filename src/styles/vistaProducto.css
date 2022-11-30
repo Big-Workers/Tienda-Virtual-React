@@ -38,7 +38,7 @@
 .precio-producto{
     font-family: 'Arial Narrow Bold', sans-serif;
     color: #0caca2;
-    margin: 15px;
+    margin: 20px;
     font-size: 30px;
 }
 
@@ -49,6 +49,7 @@
 .icono-carrito{
     height: 30px;
     width: 30px;
+    vertical-align: middle;
 }
 
 .boton-agregar-carrito{
@@ -65,3 +66,4 @@
     margin:0 10px;
     padding: 5px 15px;
 }
+

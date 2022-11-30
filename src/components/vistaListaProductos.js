@@ -13,7 +13,7 @@ export const ListaProductos = () => {
     setBusqueda(e.target.value);
     filtrar(e.target.value);
   }
-  
+
   const filtrar = (busqueda) => {
     var resultadoBusqueda = productos.filter((elemento) => {
       if (elemento.nombre.toString().toLowerCase().includes(busqueda.toLowerCase())) {
@@ -22,30 +22,31 @@ export const ListaProductos = () => {
     })
     setDataProductos(resultadoBusqueda);
   }
-  
+
   useEffect(() => {
     getData();
   }, [])
-  
+
   //se obtiene los productos de la base de datos
   function getData() {
-    fetch("http://localhost:5000/productosStock")
+    fetch("https://api-artesania-backend.up.railway.app/productosStock")
       .then((resp) => resp.json())
       .then((resp) => {
-        return setProductos(resp), 
-        setDataProductos(resp)
+        return setProductos(resp),
+          setDataProductos(resp)
       })
       .catch((err) => console.log(err));
   };
-  
-  //se agrega el producto al carrito
-  
 
-  
+  //se agrega el producto al carrito
+
+
+
   return (
     <>
       <div className="div-buscar">
         <input
+          title="Barra de búsqueda"
           className="input-buscar"
           value={busqueda}
           onChange={handleChange}
@@ -58,25 +59,25 @@ export const ListaProductos = () => {
           <div className="producto">
             <div className="imagen-producto-box">
               <img
+                title="Imagen del producto"
                 className="imagen-producto"
                 alt="Imagen de Producto"
                 src={prod.imagen}
               ></img>
             </div>
-            <div className="info-producto">
+            <div title="Información del producto" className="info-producto">
               <center>
                 <h2 className="titulo">{prod.nombre}</h2>
                 <p className="descripcion">
                   {prod.descripcion}{" "}
                 </p>
-              </center>
-              <h2 className="precio-lista-productos">$ {prod.precio}</h2>
+              <h2 title="Precio del producto" className="precio-lista-productos">$ {prod.precio}</h2>
               <div className="opciones-prod">
                 <div>
-                    <a className="boton-agregar" href={`Producto/${prod._id}`} >Ver Producto</a>
+                  <a title="Ver producto" className="boton-agregar" href={`Producto/${prod._id}`} >Ver Producto</a>
                 </div>
-                
               </div>
+              </center>
             </div>
           </div>
         )}
