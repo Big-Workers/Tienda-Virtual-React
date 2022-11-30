@@ -8,18 +8,18 @@ import home from '../resources/casa-de-perro.png';
 export function Header () {
     return (
         <nav className="header">
-            <a href="/Home"><img src={logo} className="logo" alt="logo" /></a>
+            <a title="Inicio" href="/Home"><img src={logo} className="logo" alt="logo" /></a>
             <div className="divFondoIconos" id="fondoUsuario">
-                <a href="/Perfil"><img src={usuario} className="iconosHeader" alt="Perfil"/></a>
+                <a title="Perfil de Usuario"href="/Perfil"><img src={usuario} className="iconosHeader" alt="Perfil"/></a>
             </div>
             <div className="divFondoIconos">
-                <a href="/Carrito"><img src={carrito} className="iconosHeader" alt="CarritoCompras"/></a>
+                <a title="Carrito de Compras" href="/Carrito"><img src={carrito} className="iconosHeader" alt="CarritoCompras"/></a>
             </div>
             <div className="divFondoIconos">
-                <a href="/Productos"><img src={productos} className="iconosHeader" alt="Productos"/></a>
+                <a title="Productos" href="/Productos"><img src={productos} className="iconosHeader" alt="Productos"/></a>
             </div>   
             <div className="divFondoIconos">
-                <a href="/Home"><img src={home} className="iconosHeader" alt="Home"/></a>
+                <a title="Inicio" href="/Home"><img src={home} className="iconosHeader" alt="Home"/></a>
             </div> 
         </nav>
 

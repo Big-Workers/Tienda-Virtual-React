@@ -25,6 +25,7 @@ import { Ventas } from "./components/ventas";
 
 import { About } from "./components/about.js";
 import { EliminarProducto } from "./components/eliminarProducto.js";
+import { VistaProducto } from "./components/vistaProducto.js";
 
 
 function App() {
@@ -71,6 +72,16 @@ function App() {
               <>
                 <Header />
                 <ListaProductos />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/Producto/:_id"
+            element={
+              <>
+                <Header />
+                <VistaProducto />
                 <Footer />
               </>
             }
