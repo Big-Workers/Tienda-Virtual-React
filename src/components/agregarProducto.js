@@ -24,7 +24,7 @@ export const AgregarProducto = () => {
         
     const datosJSON = JSON.stringify(producto)       
     
-    fetch("http://localhost:5000/nuevoProducto", {
+    fetch("https://api-artesania-backend.up.railway.app/nuevoProducto", {
         method: "POST",
         body: datosJSON,
         headers: {

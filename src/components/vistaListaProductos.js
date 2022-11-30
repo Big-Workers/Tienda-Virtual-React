@@ -14,7 +14,7 @@ export const ListaProductos = () => {
 
   //se obtiene los productos de la base de datos
   function getData() {
-    fetch("http://localhost:5000/productosStock")
+    fetch("https://api-artesania-backend.up.railway.app/productosStock")
       .then((resp) => resp.json())
       .then((resp) => {
         return setDataProductos(resp)
@@ -26,7 +26,7 @@ export const ListaProductos = () => {
   const addProductosCarrito = async (producto) => {
     const { nombre, imagen, precio } = producto;
 
-    await axios.post("http://localhost:5000/postProductosCarrito", { nombre, imagen, precio });
+    await axios.post("https://api-artesania-backend.up.railway.app/postProductosCarrito", { nombre, imagen, precio });
 
     getData();
   };

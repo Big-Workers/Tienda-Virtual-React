@@ -14,7 +14,7 @@ export const ProductosAdmin = () => {
 
 
   function getData() {
-    fetch("http://localhost:5000/productos")
+    fetch("https://api-artesania-backend.up.railway.app/productos")
       .then((resp) => resp.json())
       .then((resp) => {
         return setDataProductos(resp)
