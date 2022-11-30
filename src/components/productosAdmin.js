@@ -1,12 +1,28 @@
 import '../styles/productosAdmin.css';
 import { useState, useEffect } from 'react';
-import axios from "axios";
+import lupa from "../resources/lupa (1).png";
 import editar from '../resources/ajustes.png';
 import eliminar from '../resources/basura.png';
 
 export const ProductosAdmin = () => {
 
   const [dataProductos, setDataProductos] = useState([]);
+  const [productos, setProductos] = useState([]);
+  const [busqueda, setBusqueda] = useState("");
+
+  const handleChange = e => {
+    setBusqueda(e.target.value);
+    filtrar(e.target.value);
+  }
+
+  const filtrar = (terminoBusqueda) => {
+    var resultadoBusqueda = productos.filter((elemento) => {
+      if (elemento.nombre.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())) {
+        return elemento;
+      }
+    })
+    setDataProductos(resultadoBusqueda);
+  }
 
   useEffect(() => {
     getData();
@@ -17,17 +33,29 @@ export const ProductosAdmin = () => {
     fetch("http://localhost:5000/productos")
       .then((resp) => resp.json())
       .then((resp) => {
-        return setDataProductos(resp)
+        return setDataProductos(resp),
+          setProductos(resp)
       })
       .catch((err) => console.log(err));
   }
 
   return (
     <>
-    <center>
-      <div className="titulo-prod-admin">
-        <p className="textoListProductos">Lista de Productos</p>
-      </div>
+      <div className="div-buscar">
+          <input
+            className="input-buscar"
+            value={busqueda}
+            onChange={handleChange}
+            placeholder="Buscar por referencia o nombre"
+          />
+          <button className="boton-buscar" ><img className="icono-lupa" src={lupa} /></button>
+        </div>
+      <center>
+        <br></br>
+        <br></br>
+        <div className="titulo-prod-admin">
+          <p className="textoListProductos">Lista de Productos</p>
+        </div>
       </center>
       <div className="contenedorTabla">
         <table className="tabla-admin-prod">
@@ -70,11 +98,11 @@ export const ProductosAdmin = () => {
         </table>
       </div>
       <center>
-      <div className="botonAgregar">
-        <a href="/Admin-Nuevo-Producto">
-          <p className="textoAgregar">Agregar nuevo producto</p>
-        </a>
-      </div>
+        <div className="botonAgregar">
+          <a href="/Admin-Nuevo-Producto">
+            <p className="textoAgregar">Agregar nuevo producto</p>
+          </a>
+        </div>
       </center>
     </>
   );
