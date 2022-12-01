@@ -94,7 +94,9 @@
     display: flex;
     position: static;
     align-content: center;
-    margin-left: 50px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
 }
 
 .input-buscar {
