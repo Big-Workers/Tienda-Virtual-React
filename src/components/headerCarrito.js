@@ -6,22 +6,7 @@ import carrito from '../resources/carrito-de-compras.png';
 import productos from '../resources/paquete.png';
 import home from '../resources/casa-de-perro.png';
 
-export const Header = () => {
-
-    const [carritoItems, setCarritoItems] = useState([]);
-
-    useEffect(() => {
-        getProductosCarrito();
-      }, []);
-
-    function getProductosCarrito() {
-      fetch("https://api-artesania-backend.up.railway.app/getProductosCarrito")
-        .then((resp) => resp.json())
-        .then((resp) => {
-          return setCarritoItems(resp)
-        })
-        .catch((err) => console.log(err));
-    };
+export const HeaderCarrito = () => {
 
     return (
         <nav className="header">
@@ -30,10 +15,7 @@ export const Header = () => {
                 <a title="Perfil de Usuario" href="/Perfil"><img src={usuario} className="iconosHeader" alt="Perfil"/></a>
             </div>
             <div className="divFondoIconos">
-                <a title="Carrito de Compras" href="/Carrito">
-                    <img src={carrito} className="iconosHeader" alt="CarritoCompras"/>
-                    <p className="cant-prod-logo-carrito">{carritoItems.length}</p>
-                    </a>
+                <a title="Carrito de Compras" href="/Carrito"><img src={carrito} className="iconosHeader" alt="CarritoCompras"/></a>
             </div>
             <div className="divFondoIconos">
                 <a title="Productos" href="/Productos"><img src={productos} className="iconosHeader" alt="Productos"/></a>

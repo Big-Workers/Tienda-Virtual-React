@@ -26,6 +26,7 @@ import { Ventas } from "./components/ventas";
 import { About } from "./components/about.js";
 import { EliminarProducto } from "./components/eliminarProducto.js";
 import { VistaProducto } from "./components/vistaProducto.js";
+import { HeaderCarrito } from "./components/headerCarrito.js";
 
 
 function App() {
@@ -90,7 +91,7 @@ function App() {
             path="/Carrito"
             element={
               <>
-                <Header />
+                <HeaderCarrito />
                 <CarritoCompras />
                 <Footer />
               </>
