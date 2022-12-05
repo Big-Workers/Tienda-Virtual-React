@@ -1,5 +1,4 @@
 import '../styles/header.css';
-import {useEffect, useState} from "react";
 import usuario from '../resources/usuario.png';
 import logo from '../resources/logo-1.png';
 import carrito from '../resources/carrito-de-compras.png';
