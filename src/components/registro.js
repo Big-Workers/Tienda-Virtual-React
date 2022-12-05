@@ -57,7 +57,7 @@ export const Registro = () => {
             contraseña: "",
           });
           setTimeout(() => {
-            setMensaje("");
+            setMensaje(alert("Usuario creado con éxito"));
             navigate("/");
           }, 1500);
         })
@@ -66,7 +66,7 @@ export const Registro = () => {
           setMensaje("Hubo un error");
           setTimeout(() => {
             setMensaje("");
-          }, 1500);
+          }, 2000);
         });
       setLoading(false);
     }
@@ -94,7 +94,7 @@ export const Registro = () => {
                   onChange={(e) => HandleChange(e)}
                   value={email}
                   className="campotex"
-                  type="text"
+                  type="email"
                   name="email"
                   placeholder="email"
                 />
@@ -126,7 +126,7 @@ export const Registro = () => {
                   placeholder="contraseña"
                 />
                 <button type="submit" className="btn element">
-                  {loading ? "Cargando" : "Registrarme"}
+                  {loading ? "Cargando..." : "Registrarme"}
                 </button>
               </form>
               <div className="pass">
@@ -135,7 +135,7 @@ export const Registro = () => {
                 </a>
               </div>
             </div>
-            {mensaje && <div className="toast"></div>}
+            {mensaje && <div className="toast">{mensaje}</div>}
           </div>
         </center>
       </div>
