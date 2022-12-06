@@ -1,40 +1,76 @@
 import "../styles/registro.css";
-import { useState } from 'react';
-
-
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+// https://api-artesania-backend.up.railway.app/api/usuario
 
 export const Registro = () => {
+  const [inputs, setInputs] = useState({
+    nombre: "",
+    email: "",
+    telefono: "",
+    direccion: "",
+    contraseña: "",
+  });
 
+  const [mensaje, setMensaje] = useState();
+  const [loading, setLoading] = useState(false);
 
-  const [nombre, setNombre] = useState("")
-  const [email, setEmail] = useState("")
-  const [telefono, setTelefono] = useState("")
-  const [direccion, setDireccion] = useState("")
-  const [contraseña, setContraseña] = useState("")
+  const navigate = useNavigate();
 
-  function registrarUsuario() {
-    var usuario = {
-      nombre: nombre,
-      email: email,
-      telefono: telefono,
-      contraseña: contraseña,
+  const { nombre, email, telefono, direccion, contraseña } = inputs;
 
+  const HandleChange = (e) => {
+    setInputs({ ...inputs, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    if (
+      nombre !== "" &&
+      email !== "" &&
+      telefono !== "" &&
+      direccion !== "" &&
+      contraseña !== ""
+    ) {
+      const Usuario = {
+        nombre,
+        email,
+        telefono,
+        direccion,
+        contraseña,
+      };
+      setLoading(true);
+      await axios
+        .post(
+          "https://api-artesania-backend.up.railway.app/api/usuario",
+          Usuario
+        )
+        .then((res) => {
+          const { data } = res;
+          setMensaje(data.mensaje);
+          setInputs({
+            nombre: "",
+            email: "",
+            telefono: "",
+            direccion: "",
+            contraseña: "",
+          });
+          setTimeout(() => {
+            setMensaje(alert("Usuario creado con éxito"));
+            navigate("/");
+          }, 1500);
+        })
+        .catch((err) => {
+          console.log(err);
+          setMensaje("Hubo un error");
+          setTimeout(() => {
+            setMensaje("");
+          }, 2000);
+        });
+      setLoading(false);
     }
-
-    const datosJSON = JSON.stringify(usuario)
-
-    fetch("https://api-artesania-backend.up.railway.app/api/usuario", {
-      method: "POST",
-      body: datosJSON,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-    //Comprobacion  de los datos
-    alert("Usuario creado correctamente")
-  }
-
+  };
 
   return (
     <center>
@@ -43,50 +79,55 @@ export const Registro = () => {
           <div className="contenedor-login">
             <div className="formulario">
               <h2 className="titulo-formulario">Registrarse</h2>
-              <form  className="formatito">
+              <form className="formatito" onSubmit={(e) => onSubmit(e)}>
+                <label htmlFor="nombre"></label>
                 <input
+                  onChange={(e) => HandleChange(e)}
+                  value={nombre}
                   className="campotex"
                   type="text"
                   name="nombre"
                   placeholder="nombre"
-                  onChange={(e) => { setNombre(e.target.value) }} value={nombre}
                 />
+                <label htmlFor="email"></label>
                 <input
+                  onChange={(e) => HandleChange(e)}
+                  value={email}
                   className="campotex"
-                  type="text"
+                  type="email"
                   name="email"
                   placeholder="email"
-                  onChange={(e) => { setEmail(e.target.value) }} value={email}
-
                 />
+                <label htmlFor="telefono"></label>
                 <input
+                  onChange={(e) => HandleChange(e)}
+                  value={telefono}
                   className="campotex"
                   type="tel"
                   name="telefono"
                   placeholder="telefono"
-                  onChange={(e) => { setTelefono(e.target.value) }} value={telefono}
                 />
+                <label htmlFor="direccion"></label>
                 <input
+                  onChange={(e) => HandleChange(e)}
+                  value={direccion}
                   className="campotex"
                   type="text"
                   name="direccion"
                   placeholder="direccion"
-                  onChange={(e) => { setDireccion(e.target.value) }} value={direccion}
                 />
+                <label htmlFor="contraseña"></label>
                 <input
+                  onChange={(e) => HandleChange(e)}
+                  value={contraseña}
                   className="campotex"
                   type="password"
                   name="contraseña"
                   placeholder="contraseña"
-                  onChange={(e) => { setContraseña(e.target.value) }} value={contraseña}
                 />
-
-                <div>
-
-                   <button onClick={registrarUsuario} className="btn element">
-                    Registrarse
-                    </button> 
-                </div>
+                <button type="submit" className="btn element">
+                  {loading ? "Cargando..." : "Registrarme"}
+                </button>
               </form>
               <div className="pass">
                 <a href="/" className="input">
@@ -94,9 +135,10 @@ export const Registro = () => {
                 </a>
               </div>
             </div>
+            {mensaje && <div className="toast">{mensaje}</div>}
           </div>
         </center>
       </div>
     </center>
   );
-}
+};
