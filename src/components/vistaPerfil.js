@@ -9,19 +9,16 @@ export const Perfil = () => {
   //solo para pruebas. Se debe recibir el id por parametros
   const idRecibido = "638aa129cc564459b758369b";
 
-  const [usuario, setUsuario] = useState({
-    nombre: "",
-    email: "",
-    telefono: "",
-    direccion: "",
-    contraseña: ""
-  });
+  //const params = useParams()
+
+  const [usuario, setUsuario] = useState([]);
 
   useEffect(() => {
     getUsuario();
   }, [])
 
   function getUsuario() {
+    //Se debe reemplazar "idRecibido" por params._id
     fetch(`http://localhost:5000/user/${idRecibido}`)
       .then((resp) => resp.json())
       .then((resp) => {
@@ -33,23 +30,22 @@ export const Perfil = () => {
 
   return (
     <>
-      <section>
         <center>
           <div className="containerFormato">
-          {Array.isArray(usuario) ? (usuario).map(user => 
+          {usuario.map((user) =>
             <div className="contenedor-elementos">
               <p className="img-item">
                 <img className="fotoPerfil" src={fotoPerfil} alt="Foto Perfil"></img>
               </p>
               <div className="contenido-lista">
                 <p className="list-item">{user.nombre}</p>
-                <p className="list-item">{user.email}</p>
-                <p className="list-item">{user.telefono}</p>
-                <p className="list-item">{user.direccion}</p>
-                <p  className="list-item">{user.contraseña}</p>
+                <p className="list-item"></p>
+                <p className="list-item"></p>
+                <p className="list-item"></p>
+                <p  className="list-item"></p>
               </div>
               <div className="button-edit">
-                <a href={`/Editar-Perfil/${user._id}`}>
+                <a href={`/Editar-Perfil/`}>
                   <img
                     className="botonEditar"
                     src={botonEditar}
@@ -58,10 +54,9 @@ export const Perfil = () => {
                 </a>
               </div>
             </div>
-            ) : null}
+            )}
           </div>
         </center>
-      </section>
     </>
   );
 }
