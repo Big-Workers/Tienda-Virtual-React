@@ -58,7 +58,7 @@ function App() {
             }
           />
           <Route
-            path="/Editar-Perfil"
+            path="/Editar-Perfil/:_id"
             element={
               <>
                 <Header />

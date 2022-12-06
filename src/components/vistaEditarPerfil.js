@@ -1,74 +1,130 @@
-import React, { Component, Fragment } from "react";
 import "../styles/vistaEditarPerfil.css";
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 import fotoPerfil from "../resources/usuario.png";
 import botonGuardar from "../resources/guardar.png";
 
-export class EditarPerfil extends Component {
-  render() {
-    return (
-      <Fragment>
-        <section>
-          <center>
-            <div className="containerFormato-editar">
-              <div className="contenedor-elementos-editar">
-                <p className="img-item-editar">
-                  <img
-                    className="fotoPerfil-editar"
-                    src={fotoPerfil}
-                    alt="Foto Perfil"
-                  ></img>
-                </p>
-                <form className="formulario-editar">
-                  <label for="Nombre"></label>
-                  <input
-                    className="list-item-editar"
-                    type="text"
-                    name="Nombre"
-                    placeholder="Pepito Perez"
-                  />
-                  <label for="Correo"></label>
-                  <input
-                    className="list-item-editar"
-                    type="email"
-                    name="Correo"
-                    placeholder="Pepito.Perez@mail.co"
-                  />
-                  <label for="Celular"></label>
-                  <input
-                    className="list-item-editar"
-                    type="tel"
-                    name="Celular"
-                    placeholder="312 312 5544"
-                  />
-                  <label for="Dirección"></label>
-                  <input
-                    className="list-item-editar"
-                    type="text"
-                    name="Dirección"
-                    placeholder="Calle falsa 5casa 4"
-                  />
-                  <label for="Contraseña"></label>
+export const EditarPerfil = () => {
+
+  const params = useParams()
+  const [usuario, setUsuario] = useState({
+    nombre: "",
+    email: "",
+    telefono: "",
+    direccion: "",
+    contraseña: ""
+  });
+
+  useEffect(() => {
+    getUsuario();
+  }, [])
+
+  function getUsuario() {
+    fetch(`http://localhost:5000/user/${params._id}`)
+      .then((resp) => resp.json())
+      .then((resp) => {
+        return setUsuario(resp)
+      })
+      .catch((err) => console.log(err));
+  }
+
+  const handleChange = e => {
+    setUsuario({
+      ...usuario,
+      [e.target.name]: e.target.value
+    });
+  }
+
+  function editarUsuario() {
+    const datosJSON = JSON.stringify(usuario)
+    fetch(`http://localhost:5000/editUser/${params._id}`, {
+      method: "PUT",
+      body: datosJSON,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    alert("Usuario modificado correctamente")
+  }
+
+  return (
+    <>
+      <section>
+        <center>
+          <div className="containerFormato-editar">
+            <div className="contenedor-elementos-editar">
+              <p className="img-item-editar">
+                <img
+                  className="fotoPerfil-editar"
+                  src={fotoPerfil}
+                  alt="Foto Perfil"
+                ></img>
+              </p>
+              <form className="formulario-editar">
+                <label htmlFor="Nombre"></label>
+                <input
+                  className="list-item-editar"
+                  type="text"
+                  name="nombre"
+                  placeholder="Nombre"
+                  onChange={handleChange}
+                  value={usuario.nombre}
+                />
+                <label htmlFor="Correo"></label>
+                <input
+                  className="list-item-editar"
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  onChange={handleChange}
+                  value={usuario.email}
+                />
+                <label htmlFor="Celular"></label>
+                <input
+                  className="list-item-editar"
+                  type="tel"
+                  name="telefono"
+                  placeholder="Teléfono"
+                  onChange={handleChange}
+                  value={usuario.telefono}
+                />
+                <label htmlFor="Dirección"></label>
+                <input
+                  className="list-item-editar"
+                  type="text"
+                  name="direccion"
+                  placeholder="Dirección"
+                  onChange={handleChange}
+                  value={usuario.direccion}
+                />
+                <div className="campo-password">
+                  <label htmlFor="Contraseña"></label>
                   <input
                     className="list-item-editar"
                     type="password"
-                    name="Contraseña"
-                    placeholder="contraseña"
+                    id="password"
+                    name="contraseña"
+                    placeholder="Contraseñá"
+                    onChange={handleChange}
+                    value={usuario.contraseña}
                   />
-                </form>
-                <div className="button-edit-editar">
-                  <a href="/Perfil">
-                    <img
-                      className="botonEditar-editar"
-                      src={botonGuardar}
-                      alt="Boton editar"
-                    ></img>
-                  </a>
+                  <span>Mostrar</span>
                 </div>
+              </form>
+              <div className="button-edit-editar">
+                <a onClick={editarUsuario}>
+                  <img
+                    className="botonEditar-editar"
+                    src={botonGuardar}
+                    alt="Boton editar"
+                  ></img>
+                </a>
               </div>
             </div>
-          </center>
-        </section>
-      </Fragment>
-    );
-  }
+          </div>
+        </center>
+      </section>
+    </>
+  );
 }
+
