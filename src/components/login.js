@@ -37,7 +37,7 @@ export const Formulariologin = () => {
           setTimeout(() => {
             setMensaje("");
             localStorage.setItem("token", data?.usuario.token);
-            navigate(`/Home/`);
+            navigate(`/Home/${data.usuario.id}`);
           }, 1500);
         })
         .catch((err) => {
@@ -88,11 +88,6 @@ export const Formulariologin = () => {
               <br></br>
               <a href="/Registrarse" className="input">
                 Registrarse
-              </a>
-              <br></br>
-              <br></br>
-              <a href="/Home" className="input">
-                Ingresar como invitado
               </a>
             </div>
           </div>

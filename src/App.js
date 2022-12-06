@@ -36,7 +36,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route
-            path="/Home"
+            path="/Home/:_id"
             element={
               <>
                 <Header />
