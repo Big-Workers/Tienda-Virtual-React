@@ -19,7 +19,7 @@ export const Perfil = () => {
 
   function getUsuario() {
     //Se debe reemplazar "idRecibido" por params._id
-    fetch(`http://localhost:5000/user/${idRecibido}`)
+    fetch(`https://api-artesania-backend.up.railway.app/user/${idRecibido}`)
       .then((resp) => resp.json())
       .then((resp) => {
         return setUsuario(resp)
@@ -32,13 +32,12 @@ export const Perfil = () => {
     <>
         <center>
           <div className="containerFormato">
-          {usuario.map((user) =>
             <div className="contenedor-elementos">
               <p className="img-item">
                 <img className="fotoPerfil" src={fotoPerfil} alt="Foto Perfil"></img>
               </p>
               <div className="contenido-lista">
-                <p className="list-item">{user.nombre}</p>
+                <p className="list-item"></p>
                 <p className="list-item"></p>
                 <p className="list-item"></p>
                 <p className="list-item"></p>
@@ -54,7 +53,6 @@ export const Perfil = () => {
                 </a>
               </div>
             </div>
-            )}
           </div>
         </center>
     </>

@@ -79,15 +79,20 @@ export const Formulariologin = () => {
                 name="contraseña"
                 placeholder="contraseña"
               />
-            </form>
-            <button type="submit" className="btn element">
+              <button type="submit" className="btn element">
                 {loading ? "Cargando..." : "Ingresar"}
               </button>
+            </form>
             <div className="pass">
               <br></br>
               <br></br>
               <a href="/Registrarse" className="input">
                 Registrarse
+              </a>
+              <br></br>
+              <br></br>
+              <a href="/Home" className="input">
+                Ingresar como invitado
               </a>
             </div>
           </div>

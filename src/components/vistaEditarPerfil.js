@@ -20,7 +20,7 @@ export const EditarPerfil = () => {
   }, [])
 
   function getUsuario() {
-    fetch(`http://localhost:5000/user/${params._id}`)
+    fetch(`https://api-artesania-backend.up.railway.app/user/${params._id}`)
       .then((resp) => resp.json())
       .then((resp) => {
         return setUsuario(resp)
@@ -37,7 +37,7 @@ export const EditarPerfil = () => {
 
   function editarUsuario() {
     const datosJSON = JSON.stringify(usuario)
-    fetch(`http://localhost:5000/editUser/${params._id}`, {
+    fetch(`https://api-artesania-backend.up.railway.app/editUser/${params._id}`, {
       method: "PUT",
       body: datosJSON,
       headers: {

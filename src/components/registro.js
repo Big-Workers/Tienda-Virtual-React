@@ -43,7 +43,7 @@ export const Registro = () => {
       setLoading(true);
       await axios
         .post(
-          "https://api-artesania-backend.up.railway.app/api/usuario",
+          "https://api-artesania-backend.up.railway.app/register",
           Usuario
         )
         .then((res) => {
